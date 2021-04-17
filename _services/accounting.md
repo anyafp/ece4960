@@ -1,82 +1,43 @@
 ---
-title: "Accounting"
+title: "Lab 1: Light Following Robot Part 1"
 date: 2018-11-18T12:33:46+10:00
 featured: true
 weight: 1
 layout: service
 ---
 
-Financial accounting (or financial accountancy) is the field of accounting concerned with the **summary, analysis and reporting** of financial transactions related to a business.
+## Objectives
 
-![Accounting Services](/images/austin-distel-nGc5RT2HmF0-unsplash.jpg)
+* Familiarize ourselves with the Arduino IDE and Arduino Nano Every.
+* Learn about the analogRead function of the Arduino.
+* Use photoresistors in conjunction with our Arduino.
 
-# Objectives 
+## Introduction
 
-Financial accounting and financial reporting are often used as synonyms.
+In Lab 1, we first began with the necessary setup for the Arduino which included installing the Arduino IDE and getting the Arduino to perform the basic example code of making the LED blink. Then we used the CdS photoresistor and built a circuit that connected the photoresistor, resistor and Arduino together. Finally, we set up two photoresistors in the circuit to act as the "eyes" of the robot in future labs.
 
-1. According to International Financial Reporting Standards: the objective of financial reporting is:
-2. To provide financial information that is useful to existing and potential investors, lenders and other creditors in making decisions about providing resources to the reporting entity.
-3. According to the European Accounting Association:
+## Blink LED
 
-## Relevance
+Using the code provided by the 3400 instructors as well as the example Arduino codes, we managed to use the board appropriately to blink the LED on the Arduino Nano Every.
 
-Relevance is the capacity of the financial information to influence the decision of its users. The ingredients of relevance are the predictive value and confirmatory value. Materiality is a sub-quality of relevance. 
+<p align="center"><iframe width="336" height="252" src="https://youtube.com/embed/vXqJwqce-0o"></iframe></p>
+<p></p>
 
-> The ingredients of relevance are the predictive value and confirmatory value. 
+## CdS Photoresistor
 
-Information is considered material if its omission or misstatement could influence the economic decisions of users taken on the basis of the financial statements.
+We then had to implement the circuit below using the CdS photoresistor and a 10kΩ resistor. Vout would go to one of the Arduino pins to read the signal, and Vin is the 5V voltage supplied by the Arduino.
 
-## Faithful Representation
+<p align="center"><img src="images/lab1/photoresistor.png" height="220" width="150"></p>
 
-Faithful representation means that the actual effects of the transactions shall be properly accounted for and reported in the financial statements. The words and numbers must match what really happened in the transaction. The ingredients of faithful representation are completeness, neutrality and free from error.
+With R1=10kΩ and Vin=5V, at the lowest brightness (1 lux), the resistance of the photoresistor would be 80kΩ and Vout would be 0.55V.
+With R1=10kΩ and Vin=5V, at the highest brightness (100 lux), the resistance of the photoresistor would be 8kΩ and Vout would be 2.77V.
 
-## Enhancing Qualitative Characteristics
+Understanding how analogRead works is also important. When some voltage source is connected to one of the Arduino pins, when using analogRead, one can print out the analog voltage on that pin. The equation to determine that result is below, where Vin is the voltage inputted to the pin, and Vref is about 5V (in my case, it was 4.76V after calculations).
 
-### Verifiability
-Verifiability implies consensus between the different knowledgeable and independent users of financial information. Such information must be supported by sufficient evidence to follow the principle of objectivity.
+<p align="center"><img src="images/lab1/result.png" height="60" width="200"></p>
 
-### Comparability
-Comparability is the uniform application of accounting methods across entities in the same industry. The principle of consistency is under comparability. Consistency is the uniform application of accounting across points in time within an entity.
+Then the circuit was built with the Arduino -- first with only one circuit, then with two separate circuits, each with one CdS photoresistor and one resistor. The first circuit used pin A0 and the second circuit used pin A1 as the Vout to read the signal. The figures below show the two setups.
 
-### Understandability
-Understandability means that accounting reports should be expressed as clearly as possible and should be understood by those to whom the information is relevant.
-Timeliness: Timeliness implies that financial information must be presented to the users before a decision is to be made.
-
----
-
-## Statement of cash flows
-The statement of cash flows considers the inputs and outputs in concrete cash within a stated period. The general template of a cash flow statement is as follows: Cash Inflow - Cash Outflow + Opening Balance = Closing Balance
-
-Cash Inflow | Outflow | Opening Balance
---- | --- | ---
-*Monday* | `Tuesday` | **Wednesday**
-1 | 2 | 3
-
-
-**Example 1:** in the beginning of September, Ellen started out with $5 in her bank account. During that same month, Ellen borrowed $20 from Tom. At the end of the month, Ellen bought a pair of shoes for $7. Ellen's cash flow statement for the month of September looks like this:
-
-* Cash inflow: $20
-* Cash outflow:$7
-* Opening balance: $5
-* Closing balance: $20 – $7 + $5 = $18
-
-**Example 2:** in the beginning of June, WikiTables, a company that buys and resells tables, sold 2 tables. They'd originally bought the tables for $25 each, and sold them at a price of $50 per table. The first table was paid out in cash however the second one was bought in credit terms. WikiTables' cash flow statement for the month of June looks like this:
-
-> **Important:** the cash flow statement only considers the exchange of actual cash, and ignores what the person in question owes or is owed.
-
-## Statement of financial position (balance sheet)
-The balance sheet is the financial statement showing a firm's assets, liabilities and equity (capital) at a set point in time, usually the end of the fiscal year reported on the accompanying income statement. 
-
-- **fixed assets**
-    - property
-    - building
-    - equipment (such as factory machinery)
-- **intangible assets**
-    - copyrights
-    - trademarks
-    - patents
-        - pending
-        - international
-- goodwill
-
-Owner's equity, sometimes referred to as net assets, is represented differently depending on the type of business ownership. Business ownership can be in the form of a sole proprietorship, partnership, or a corporation. For a corporation, the owner's equity portion usually shows common stock, and retained earnings (earnings kept in the company). Retained earnings come from the retained earnings statement, prepared prior to the balance sheet.
+<p align="center"><img src="images/lab1/circuit_oneeye.jpeg" height="240" width="300"><br>Circuit with one "eye."</p>
+<p align="center"><img src="images/lab1/circuit_twoeyes.jpeg" height="240" width="300"><br>Circuit with two "eyes."</p>
+<p></p>

@@ -1,7 +1,7 @@
 ---
-title: Jekyll Serif Theme
+title: Anya's 3400 Wiki
 layout: home
-description: Jekyll Serif contains content types for a typical business website. The theme is fully responsive, blazing fast and artfully illustrated.
+description: Anya's ECE 3400 Wiki Site
 intro_image: "images/illustrations/robots.jpeg"
 intro_image_absolute: true
 intro_image_hide_on_mobile: true

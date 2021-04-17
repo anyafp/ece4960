@@ -20,7 +20,7 @@ In Lab 2, we first began by understanding how the ADC (analog-to-digital convert
 
 ## H-Bridge
 
-<p align="center"><img src="../../images/lab2/hbridge.png" height="200" width="250"><br>H-Bridge Pinout (taken from lab handout)</p>
+<p align="center"><img src="../../images/lab2/hbridge.png" height="170" width="250"><br>H-Bridge Pinout (taken from lab handout)</p>
 
 To connect and control the motors, we used the L293 H-Bridge, as shown above. Below are the explanations of the pins and their purposes.
 

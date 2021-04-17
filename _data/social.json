@@ -1,12 +1,12 @@
 [
   {
     "name": "Github",
-    "link": "https://github.com/zerostaticthemes/jekyll-serif-theme",
+    "link": "https://github.com/anyafp",
     "image": "images/social/github.svg"
   },
   {
-    "name": "Twitter",
-    "link": "https://twitter.com/zerostaticio",
-    "image": "images/social/twitter.svg"
+    "name": "Linkedin",
+    "link": "https://www.linkedin.com/in/anya-prabowo-8aa5b5185/",
+    "image": "images/social/linkedin.png"
   }
 ]

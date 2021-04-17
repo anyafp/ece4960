@@ -8,4 +8,4 @@ intro_image_hide_on_mobile: false
 
 # Meet The Team
 
-Our team of qualified accountants and financial consultants can help your business at any stage of it's growth.
+Despite being a mostly virtual semester, our team tries to meet as often as possible to collaborate together on the labs.

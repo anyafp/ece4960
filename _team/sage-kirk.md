@@ -1,10 +1,10 @@
 ---
-title: "Sage Kirk"
+title: "Frances Lee"
 date: 2018-11-19T10:47:58+10:00
 draft: false
 image: "images/team/sage-kirk-485982-unsplash.jpg"
-jobtitle: "Accounting Partner"
-linkedinurl: "https://www.linkedin.com/example2"
+jobtitle: "fl295"
+linkedinurl: "https://www.linkedin.com/in/frances-lee-b0419/"
 promoted: true
 weight: 2
 layout: team

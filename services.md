@@ -1,11 +1,11 @@
 ---
-title: Services
+title: Labs
 layout: services
 intro_image: "images/illustrations/reading.svg"
 intro_image_absolute: true
 intro_image_hide_on_mobile: false
 ---
 
-# Services that grow with your business
+# Labs
 
-Aliquam erat volutpat. Morbi nisl tortor, dignissim eget efficitur vel, auctor non felis. Fusce quis viverra mi. Aenean quis massa pretium, ullamcorper nisi eget, hendrerit odio.
+Here you can find the reports to all my labs. Included are overviews, introductions, and in-depth details on the steps taken in each of the labs. The reports include images and embedded YouTube videos where relevant.

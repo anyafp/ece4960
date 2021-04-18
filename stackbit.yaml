@@ -10,7 +10,7 @@ pagesDir: ''
 pageLayoutKey: null
 logicFields:
   - site_menu_item.weight
-  - service.weight
+  - labs.weight
   - team.weight
 models:
   config:
@@ -85,7 +85,7 @@ models:
         name: collections
         fields:
           - type: object
-            name: services
+            name: labs
             fields:
               - type: boolean
                 name: output
@@ -249,10 +249,10 @@ models:
             value: footer
       - type: string
         name: bodyClass
-  service:
+  lab:
     type: page
-    label: Service
-    folder: _services
+    label: lab
+    folder: _labs
     fields:
       - type: string
         name: title
@@ -267,12 +267,12 @@ models:
       - type: enum
         name: layout
         options:
-          - label: service
-            value: service
-  services:
+          - label: lab
+            value: lab
+  labs:
     type: page
-    label: Services Overview
-    file: services.md
+    label: Labs Overview
+    file: labs.md
     singleInstance: true
     fields:
       - type: string
@@ -295,8 +295,8 @@ models:
       - type: enum
         name: layout
         options:
-          - label: services
-            value: services
+          - label: labs
+            value: labs
   team:
     type: page
     label: Team

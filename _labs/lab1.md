@@ -3,7 +3,7 @@ title: "Lab 1: Light Following Robot Part 1"
 date: 2018-11-18T12:33:46+10:00
 featured: true
 weight: 1
-layout: service
+layout: lab
 ---
 
 ## Objectives

@@ -50,6 +50,16 @@ In order to move the robot, I needed to understand what configuration would make
 
 <p align="center"><img src="../../images/lab2/wheelgif.gif" height="240" width="450"></p>
 
+In order to spin the wheels in the desired direction for a certain period of time, I had initially used the delay() function, which is the easiest way to do so. But due to the limitation for this lab, I had to find another way to do this without using the delay() funciton. Instead, I used a method mentioned in class which was to make 3 different variables that would represent the cut off time for running the motor in that particular direction. These were my values used:
+
+```
+unsigned long forwardMillis = 1500;
+unsigned long backwardMillis = 1500*2;
+unsigned long oppMillis = 1500*3;
+```
+
+This means that each configuration would run for 1.5s. When first running the main loop function, the start time (startMillis) would be obtained by calling millis() and obtaining the start time. This value is not to be change. Another variable, currMillis, would be obtained and updated to find out how much time has elapsed since the start time. The difference between currMillis and startMillis would be used to determine which configuration would run. After the time for each configuration has passed, I made an extra else statement that would stop the motors.
+
 ## Wheel Calibration
 
 It was very unlikely that the two wheels would spin at the same speed when given the same pulse width modulation (PWM) values. This was the same with the motors I had. As such, I did trial and error to find out which PWM values for each motor would result in the same spinning speed. This would be achieved when the robot moves forward in a straight line.
@@ -67,5 +77,17 @@ The video below is the robot moving at medium speed, with speed inputs 78 for mo
 The final step of this lab is to bring in what we did in lab 1 and use the photoresistor as a light sensor that would trigger the robot to perform different actions. Listed below are the requirements that the robot had to perform:
 
 <p align="center"><img src="../../images/lab2/action.png" height="270" width="500"></p>
+
+Before beginning a trial and error method (which was inevitable due to high dependencies on the environment), when writing the code, I split it into 2 main base cases: the case where there is normal lighting OR too much light, and the case where there is brighter light on one side. When there is normal lighting or too much light, the robot would spin in circles and blink the LED. When there is brighter light on one side, the robot would first turn in that direction, then continue traveling in a straight line towards that light.
+
+Before going into these cases, I first needed to obtain the normalized measurements for brightness. So that my code was not messy and difficult to read, I made functions to obtain the normalized measurements for brightness for each of the photosensors which would be used to determine whether there was more light on one side compared to the other. In order to determine whether there's generally too much light overall, I also made functions to obtain the raw data output from the analog pins of each photosensor.
+
+For the first case, the main condition for this would be if the normalized brightness value for the left photosensor was between 2 certain threshold values (which I would later find through trial and error and would be highly dependent on my environment) or if the analog pin values for both photosensors is more than a certain value (which was also determined later). The reason only the left normalized brightness was used is because the left and right measurements are dependent on each other (1 - left = right) and it would have been trivial to make cases for both the left and right photosensor.
+
+If these conditions are met, I would make the motors spin (again, I made a call to a function for this). While these conditions were still met, I would keep calling the functions to obtain the analog pin and normalized brightness data to continuously update them, as well as call a function that the blinks the LED.
+
+When blinking the LED, I had to make sure that I did not use delay(). To do this, I had simply used the same method that I used for the wheel calibration.
+
+When the conditions are no longer met, this would theoretically immediately be met since the normalized brightness and analog pin values are constantly being updated. 
 
 <p align="center"><iframe width="450" height="252" src="https://youtube.com/embed/q88cfr6-Gu4"></iframe></p>

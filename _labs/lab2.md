@@ -18,6 +18,10 @@ layout: lab
 
 In Lab 2, we first began by understanding how the ADC (analog-to-digital converter) works. We then moved on to using the h-bridge to control motors, testing out the different speeds and directions that the wheels can move. Since the wheels were not completely identical, it was important to calibrate the wheels such that they would move at the same speed. Finally, integrating the photoresistors was an essential part of the lab so that the robot could sense the intensity of light and react to it appropriately.
 
+## Understanding the ADC
+
+In this part of the lab, we applied what we had learned about the ADC from class. From the material covered in class as well as the ATMega4809 Datasheet, I learned that the ADC prescaler generates the ADC clock from any CPU clock **above 100kHz**.
+
 ## H-Bridge
 
 <p align="center"><img src="../../images/lab2/hbridge.png" height="170" width="250"><br>H-Bridge Pinout (taken from lab handout)</p>
@@ -88,6 +92,18 @@ If these conditions are met, I would make the motors spin (again, I made a call 
 
 When blinking the LED, I had to make sure that I did not use delay(). To do this, I had simply used the same method that I used for the wheel calibration.
 
-When the conditions are no longer met, this would theoretically immediately be met since the normalized brightness and analog pin values are constantly being updated. 
+When the conditions are no longer met, this would theoretically immediately be indicated since the normalized brightness and analog pin values are constantly being updated. We would exit this while loop and the motors would stop running. 
+
+We then reach the next conditional statement to determine whether one photosensor detects more light than the other (determined using the normalized brightness). There are several cases within this condition. 
+
+1. The light is brighter on the right
+2. The light is brighter on the left
+3. The light is equal, but still brighter than usual (i.e. the robot must move in a straight line towards the light)
+
+For cases 1 and 2 above, the code is pretty similar except for the fact that they've been adjusted to adjust either the left or right side of the robot. In these cases, I basically updated the normalized brightness values, and made one motor side speed faster than the other for the appropriate side. 
+
+The third case was slightly trickier than the first two. I would first update the analog pin data to check the brightness detected by each photosensor. While either the left or right photosensor detected light brighter than a certain threshold (this means that there is a flashlight shining on the robot which either means that it has to travel in a straight line towards the light or there is a flashlight shining on one side), we update the brightness values again but in addition to this, we also check the normalized brightness values too before starting the motors to go in a straight line. In the case that the normalized measurements are not equal, the motor speeds would change. This would repeat in a while loop until the brightness decreases (no more flashlight).
+
+Below is the video of the robot reacting to different situations of light.
 
 <p align="center"><iframe width="450" height="252" src="https://youtube.com/embed/q88cfr6-Gu4"></iframe></p>

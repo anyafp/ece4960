@@ -25,7 +25,7 @@ In the third part,
 
 ## LTSpice Basics
 
-This section of the lab was used to get used to LTSpice and how it functions. After navigating through LTSpice, we needed to draw a low pass RC and high pass RC circuit (which is useful for the later parts of the lab). After drawing these circuits, the frequency response of these circuits was obtained. The circuits and graphs can be found below:
+This section of the lab was used to get used to LTSpice and how it functions. After navigating through LTSpice, we needed to draw a low pass RC and high pass RC circuit (which is useful for the later parts of the lab). We used 1.2k as the resistance of the resistor in this exercise, but will be using 3.3k resistors in the later parts. After drawing these circuits, the frequency response of these circuits was obtained. The circuits and graphs can be found below:
 
 ### Low Pass Circuit and Graph
 ![Low Pass Circuit](../../images/lab3/lowpass-circuit.png)
@@ -118,3 +118,7 @@ This code was tweaked to use the correct prescalar value and use the correct Ard
 ### MATLAB Code
 
 Code was then written in MATLAB to fetch data from the Arduino. The file ```readData_INT_Canvas.m``` on Canvas handled most of the work related to generating the sound (chirp) for the microphone to pick up and reading and converting the values to be read from the serial port of the Arduino. What was left to do was perform Fourier analysis on the data so that we could analyze what was going on.
+
+In order to do so, the simplest way to do so is to use MATLAB's [fft function](https://www.mathworks.com/help/matlab/ref/fft.html?s_tid=mwa_osa_a). In order to use this fft function well, it was in our best interest to follow the format of the examples MATLAB gave to use their function. The example that we references was the noisy signal example. But it was also important to understand what was going on in this example.
+
+There are several variables that are important when calculating the fast fourier transform. We first obtained the length of the signal (length of dataDouble) which is the number of data points obtained from the Arduino. We then computed the sampling frequency by taking the length of the signal and dividing it by the time duration of reading the signal. Sampling frequency is the number of samples per second. The sampling period (1/Fs) was obtained along with the 

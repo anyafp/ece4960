@@ -20,7 +20,7 @@ In Lab 2, we first began by understanding how the ADC (analog-to-digital convert
 
 ## Understanding the ADC
 
-In this part of the lab, we applied what we had learned about the ADC from class. From the material covered in class as well as the ATMega4809 Datasheet, I learned that the ADC prescaler generates the ADC clock from any CPU clock **above 100kHz**.
+In this part of the lab, we applied what we had learned about the ADC from class. From the material covered in class as well as the ATMega4809 Datasheet, I learned that the ADC prescaler generates the ADC clock from any CPU clock **above 100kHz**. It is the Prescaler bits (PRESC) that determine prescaling.
 
 ## H-Bridge
 

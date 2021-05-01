@@ -165,3 +165,4 @@ It is pretty obvious that my measured data does not align well (at all) with the
 
 ## FFT on Arduino
 
+Finally, we were tasked to code the fft on the Arduino. Since we had our existing version of freeRunADC_ISR from the previous part, we needed to make some changes to this after downloading the Arduino fft library.

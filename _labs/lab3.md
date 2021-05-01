@@ -165,4 +165,7 @@ It is pretty obvious that my measured data does not align well (at all) with the
 
 ## FFT on Arduino
 
-Finally, we were tasked to code the fft on the Arduino. Since we had our existing version of freeRunADC_ISR from the previous part, we needed to make some changes to this after downloading the Arduino fft library.
+Finally, we were tasked to code the fft on the Arduino. Since we had our existing version of freeRunADC_ISR from the previous part, we needed to make some changes to this after downloading the Arduino fft library. In this section, we removed any filters from the microphone circuit and just kept the amplified microphone circuit.
+
+First of all, we needed to set up the interrupts in order to update the counter that is used to obtain ADC values at every interrupt (every 0.41667ms). This was implemented using what we had discussed in class. The ADC values at every interrupt was stored and once all of the data was gathered (257 data points), the ADC values are converted into signed 16-bit numbers (we had done something similar in lab 2). These values are then stored in an array called fft_index, where the even indices are the converted ADC values, while the odd indices are just 0. The size of this array would be 513. A series of commands are called that generate the FFT based on the FFT library we had downloaded. These values would be printed when running the code (and sound to be heard by the microphone) and manually copied and pasted to be plotted in MATLAB. This time, the chirp generated is a 10s 500Hz beep (which is much longer than we needed). We did this for 3 different frequencies and plotted their graphs, as shown below.
+![FFT from Arduino](../../images/lab3/spectrum-comb.jpg)

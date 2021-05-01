@@ -13,7 +13,7 @@ layout: lab
 * Use MATLAB and Arduino to plot FFT graph of the signal picked up by the microphone.
 * Amplify the sound outputted from the microphone.
 * Implement low pass, high pass and bandpass filters to filter the amplified sound from the microphone.
-* 
+* Code FFT on the Ardiuno
 
 ## Introduction
 
@@ -21,7 +21,7 @@ Lab 3 was split into three parts. In the first part, we used LTSpice to draw out
 
 In the second part of this lab, we needed to improve the microphone circuit. From the spectrum obtained in the previous part, the sound received was very miniscule (and this was with the volume output on our laptops being maxed out). As such, we needed to amplify the sound by tweaking the circuit. We then added different components to this circuit to make it a low pass and/or high pass filter using the circuit we had designed in part 1. The frequency response was plotted as well. Lastly, the bandpass filter was created using the Butterworth 4-pole filter discussed in class. The frequency response of this filter was also plotted
 
-In the third part,
+In the third part, we were tasked to code the FFT on the Arduino. Other that downloading the fft library, we modified the previously coded freeRun_ADC Arduino file and ensured that it works by plotting the data obtained in MATLAB. 
 
 ## LTSpice Basics
 
@@ -121,4 +121,6 @@ Code was then written in MATLAB to fetch data from the Arduino. The file ```read
 
 In order to do so, the simplest way to do so is to use MATLAB's [fft function](https://www.mathworks.com/help/matlab/ref/fft.html?s_tid=mwa_osa_a). In order to use this fft function well, it was in our best interest to follow the format of the examples MATLAB gave to use their function. The example that we references was the noisy signal example. But it was also important to understand what was going on in this example.
 
-There are several variables that are important when calculating the fast fourier transform. We first obtained the length of the signal (length of dataDouble) which is the number of data points obtained from the Arduino. We then computed the sampling frequency by taking the length of the signal and dividing it by the time duration of reading the signal. Sampling frequency is the number of samples per second. The sampling period (1/Fs) was obtained along with the 
+There are several variables that are important when calculating the fast fourier transform. We first obtained the length of the signal (length of dataDouble) which is the number of data points obtained from the Arduino. We then computed the sampling frequency by taking the length of the signal and dividing it by the time duration of reading the signal. Sampling frequency is the number of samples per second. The sampling period (1/Fs) was obtained, and used to get the frequency domain, which is the x axis of the graph to be plotted.
+
+Once the code was done and ready, 

@@ -106,4 +106,4 @@ The third case was slightly trickier than the first two. I would first update th
 
 Below is the video of the robot reacting to different situations of light.
 
-<p align="center"><iframe width="450" height="252" src="https://youtube.com/embed/q88cfr6-Gu4"></iframe></p>
+<p align="center"><iframe width="720" height="408" src="https://youtube.com/embed/q88cfr6-Gu4"></iframe></p>

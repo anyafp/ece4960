@@ -68,3 +68,34 @@ In order to get the robot to turn 360º in around 5s, I initially set the loop t
 
 Here is the final video for demo 1:
 <p align="center"><iframe width="720" height="408" src="https://youtube.com/embed/2BM98UhIqjY"></iframe></p>
+
+## Adding the Photosensor
+
+It was finally time to add the photosensor to the whole circuit. Following the instructions and steps taken in Lab 1, we had put the circuit together as seen below.
+
+![Full Circuit](../../images/lab4/full-circuit.jpeg)
+
+As seen above, the microphone and amplifier were taken out since there would be no aspect of sound in the second demo.
+
+## Demo 2
+
+Now that this has been tested with Lab 1 code to ensure the photosensors still worked, it was time to start coding the new circuit to follow the new set of instructions. Below is an image of the obstacle course that our robot would have to go through, taken from the lab handout.
+![Set Up 2](../../images/lab4/setup2.png)
+
+The instructions are found below:
+1. The robot starts motionles with the LED off at the start position.
+2. The flashlight will shine on the left side of the robot. The LED remains off and the robot will turn left to face the flashlight and follow the light for a distance of about 30cm.
+3. The flashlight will shine on the right side of the robot. The LED remains off and the robot will turn right to face the flashlight and follow the light for a distance of about 30cm towards Obstacle 1. When the robot faces Obstacle 1 (and is 30cm away, i.e., detects Obstacle 1), the LED turns on. When the robot reaches within 5cm of Obstacle 1, it will stop moving.
+4. The flashlight will shine on the left side of the robot but the robot will not move. The flashlight will then shine on the right side of the robot, where the robot will follow the light and the LED turns off.
+5. The robot will follow the flashlight in a straight line (as depicted in the image above along the red line) and then left then left again. At this point, the robot will be facing Obstacle 2 and be about 30cm away, so the LED will turn on. It will continue moving towards Obstacle 2.
+6. When the robot is within 5cm of Obstacle 2, it will stop moving even though the flashlight is on in front of the robot. The LED turns off.
+7. The flashlight will shine on the left side and the robot will turn left to face Obstacle 1 and the LED will turn on. The robot is led to Obstacle 1 where it stops 5cm away from the Obstacle.
+8. The robot will be made to turn 180º (by either shining the flashlight on the right or left of the robot). The LED will turn off. The robot will follow the flashlight towards Obstacle 3. When it is 30cm from Obstacle 3, the LED will turn on.
+9. The robot travels towards Obstacle 3 until it is 5cm away, where it will stop moving and the LED remains on.
+
+These are the requirements and constraints for Demo 2:
+* The speed of the robot should be such that it takes approximately 3s to travel 30cm.
+* No library should be used.
+* No functions like `attachInterrupt()` should be used.
+* Functions like `delay()` and other blocking function or blocking code should not be used.
+* RX and TX LEDs must remain off during the video recording.

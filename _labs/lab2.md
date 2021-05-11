@@ -6,6 +6,8 @@ weight: 6
 layout: lab
 ---
 
+In Lab 2, we first began by understanding how the ADC (analog-to-digital converter) works. We then moved on to using the h-bridge to control motors, testing out the different speeds and directions that the wheels can move. Since the wheels were not completely identical, it was important to calibrate the wheels such that they would move at the same speed. Finally, integrating the photoresistors was an essential part of the lab so that the robot could sense the intensity of light and react to it appropriately.
+
 ## Objectives
 
 * Understand the ADC.
@@ -13,10 +15,6 @@ layout: lab
 * Blink the LED without using the delay() function or interrupts.
 * Successfully calibrate motors.
 * Incorporate part 1 to use photoresistors as light sensors.
-
-## Introduction
-
-In Lab 2, we first began by understanding how the ADC (analog-to-digital converter) works. We then moved on to using the h-bridge to control motors, testing out the different speeds and directions that the wheels can move. Since the wheels were not completely identical, it was important to calibrate the wheels such that they would move at the same speed. Finally, integrating the photoresistors was an essential part of the lab so that the robot could sense the intensity of light and react to it appropriately.
 
 ## Understanding the ADC
 

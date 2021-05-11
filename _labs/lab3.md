@@ -6,6 +6,12 @@ weight: 5
 layout: lab
 ---
 
+Lab 3 was split into three parts. In the first part, we used LTSpice to draw out various circuits that would be useful for the next few parts. This helped us visualize the circuits that would be built later on. It also would serve useful to plot the theoretical frequency response of the relevant setups. We then had to build a circuit that would use the microphone to collect sound and use it as input for the Arduino. Finally, we needed to make sure that the Arduino is able to read the output of the microphone. Since the analogRead() function is too slow, we were tasked to manually code the ADC. This would then be fed into a MATLAB script as input and the FFT would be calculated. With this information, the spectrum can be plotted.
+
+In the second part of this lab, we needed to improve the microphone circuit. From the spectrum obtained in the previous part, the sound received was very miniscule (and this was with the volume output on our laptops being maxed out). As such, we needed to amplify the sound by tweaking the circuit. We then added different components to this circuit to make it a low pass and/or high pass filter using the circuit we had designed in part 1. The frequency response was plotted as well. Lastly, the bandpass filter was created using the Butterworth 4-pole filter discussed in class. The frequency response of this filter was also plotted
+
+In the third part, we were tasked to code the FFT on the Arduino. Other that downloading the fft library, we modified the previously coded freeRun_ADC Arduino file and ensured that it works by plotting the data obtained in MATLAB. 
+
 ## Objectives
 
 * Understand low pass, high pass and bandpass filters using LTSpice
@@ -14,14 +20,6 @@ layout: lab
 * Amplify the sound outputted from the microphone.
 * Implement low pass, high pass and bandpass filters to filter the amplified sound from the microphone.
 * Code FFT on the Ardiuno
-
-## Introduction
-
-Lab 3 was split into three parts. In the first part, we used LTSpice to draw out various circuits that would be useful for the next few parts. This helped us visualize the circuits that would be built later on. It also would serve useful to plot the theoretical frequency response of the relevant setups. We then had to build a circuit that would use the microphone to collect sound and use it as input for the Arduino. Finally, we needed to make sure that the Arduino is able to read the output of the microphone. Since the analogRead() function is too slow, we were tasked to manually code the ADC. This would then be fed into a MATLAB script as input and the FFT would be calculated. With this information, the spectrum can be plotted.
-
-In the second part of this lab, we needed to improve the microphone circuit. From the spectrum obtained in the previous part, the sound received was very miniscule (and this was with the volume output on our laptops being maxed out). As such, we needed to amplify the sound by tweaking the circuit. We then added different components to this circuit to make it a low pass and/or high pass filter using the circuit we had designed in part 1. The frequency response was plotted as well. Lastly, the bandpass filter was created using the Butterworth 4-pole filter discussed in class. The frequency response of this filter was also plotted
-
-In the third part, we were tasked to code the FFT on the Arduino. Other that downloading the fft library, we modified the previously coded freeRun_ADC Arduino file and ensured that it works by plotting the data obtained in MATLAB. 
 
 ## LTSpice Basics
 

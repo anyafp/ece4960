@@ -6,21 +6,19 @@ weight: 1
 layout: lab
 ---
 
+In Lab 1, we first began with the necessary setup for the Arduino which included installing the Arduino IDE and getting the Arduino to perform the basic example code of making the LED blink. Then we used the CdS photoresistor and built a circuit that connected the photoresistor, resistor and Arduino together. Finally, we set up two photoresistors in the circuit to act as the "eyes" of the robot in future labs.
+
 ## Objectives
 
 * Familiarize ourselves with the Arduino IDE and Arduino Nano Every.
 * Learn about the analogRead function of the Arduino.
 * Use photoresistors in conjunction with our Arduino.
 
-## Introduction
-
-In Lab 1, we first began with the necessary setup for the Arduino which included installing the Arduino IDE and getting the Arduino to perform the basic example code of making the LED blink. Then we used the CdS photoresistor and built a circuit that connected the photoresistor, resistor and Arduino together. Finally, we set up two photoresistors in the circuit to act as the "eyes" of the robot in future labs.
-
 ## Blink LED
 
 Using the code provided by the 3400 instructors as well as the example Arduino codes, we managed to use the board appropriately to blink the LED on the Arduino Nano Every.
 
-<p align="center"><iframe width="336" height="252" src="https://youtube.com/embed/vXqJwqce-0o"></iframe></p>
+<p align="center"><iframe width="720" height="408" src="https://youtube.com/embed/vXqJwqce-0o"></iframe></p>
 <p></p>
 
 ## CdS Photoresistor
@@ -38,6 +36,5 @@ Understanding how analogRead works is also important. When some voltage source i
 
 Then the circuit was built with the Arduino -- first with only one circuit, then with two separate circuits, each with one CdS photoresistor and one resistor. The first circuit used pin A0 and the second circuit used pin A1 as the Vout to read the signal. The figures below show the two setups.
 
-<p align="center"><img src="../../images/lab1/circuit_oneeye.jpeg" height="240" width="300"><br>Circuit with one "eye."</p>
-<p align="center"><img src="../../images/lab1/circuit_twoeyes.jpeg" height="240" width="300"><br>Circuit with two "eyes."</p>
-<p></p>
+![One Eye](../../images/lab1/circuit_oneeye.jpeg)
+![One Eye](../../images/lab1/circuit_twoeyes.jpeg)

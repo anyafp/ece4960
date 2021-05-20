@@ -97,3 +97,9 @@ These are the requirements and constraints for Demo 2:
 * No functions like `attachInterrupt()` should be used.
 * Functions like `delay()` and other blocking function or blocking code should not be used.
 * RX and TX LEDs must remain off during the video recording.
+
+Most of the functions were pretty much the same as previous parts of this lab. In order to account for the inconsistent conditions for the LED to be on (step 6) and when it does not follow the light to the left (step 4), the obstacle number was counted by having a flag that would turn true whenever the robot was within 30cm of an object, and would turn false when it was further than 30cm. When the flag goes from false to true, the obstacle counter variable would be incremented by 1. For step 4, if the robot were facing obstacle 1, it would not follow the light to the left. For step 6, if the robot were facing obstacle 2, when it is within 5cm of the obstacle, the LED would turn off.
+
+Here is the final video for demo 2:
+
+<p align="center"><iframe width="720" height="408" src="https://youtube.com/embed/ggJsWsJ-8Xk"></iframe></p>

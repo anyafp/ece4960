@@ -5,4 +5,4 @@ layout: page
 bodyClass: page-about
 ---
 
-Hello!
+Hi, I'm Anya, an undergraduate senior ECE at Cornell!

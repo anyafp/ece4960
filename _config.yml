@@ -1,4 +1,4 @@
-baseurl: '/ece3400/'
+baseurl: '/ece4960/'
 permalink: pretty
 title:
 
@@ -16,9 +16,9 @@ footer:
   copyright_text: 'Free Jekyll theme by <a class="zerostatic" href="https://www.zerostatic.io">www.zerostatic.io</a>'
 
 seo:
-  meta_og_title: "Anya's 3400 Wiki"
+  meta_og_title: "Anya's 4960 Webpage"
   meta_og_type: "website"
-  meta_og_url: "https://anyafp.github.io/ece3400/"
+  meta_og_url: "https://anyafp.github.io/ece4960/"
   meta_og_image: "images/illustrations/robots.jpeg"
   meta_og_description: ""
   meta_twitter_card: "summary"

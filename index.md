@@ -10,3 +10,5 @@ intro_image_hide_on_mobile: false
 # Anya Prabowo
 
 ECE 4960: Fast Robots
+
+Hi! I'm Anya, an undergraduate senior ECE at Cornell. My academic interest lie in computer architecture, but I'm excited to learn about the signals and robotics side of ECE as well.

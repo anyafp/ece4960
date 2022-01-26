@@ -1,15 +1,13 @@
 main:
-  - name: "Labs"
-    url: "/labs/"
-    weight: 2
-  - name: "About"
-    url: "/about/"
-    weight: 4
-
-footer:
   - name: "Home"
     url: "/"
     weight: 1
-  - name: "Contact"
-    url: "/contact/"
+  - name: "Labs"
+    url: "/labs/"
     weight: 2
+  
+
+footer:
+  - name: ""
+    url: "/"
+    weight: 1

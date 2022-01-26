@@ -1,12 +1,12 @@
 ---
-title: Anya's 3400 Wiki
+title: Anya's 4960 Webpage
 layout: home
-description: Anya's ECE 3400 Wiki Site
-intro_image: "images/illustrations/robots.jpeg"
+description: Anya's ECE 4960 Webpage
+intro_image:
 intro_image_absolute: true
 intro_image_hide_on_mobile: true
 ---
 
-# Welcome to my ECE 3400 wiki :-)
+# Anya Prabowo
 
-Hello! This page contains all my work related to ECE 3400.
+ECE 4960: Fast Robots

@@ -57,6 +57,25 @@ This specific example demonstrates the use of the [analogRead](https://www.ardui
 * the internal VCC voltage
 * the internal VSS voltage
 
+The figure below shows the serial monitor output when running the Arduino example code.
+
+<p align="left"><img src="../../images/lab1/analog-read.png" height="600" width="600"></p>
+
+These are the different relevant outputs:
+* external (count): Analog voltage on the ADC pin selected (in this case, pin 13)
+* temp (counts): Raw temperature reading from the temperature sensor ADC pin
+* vcc/3 (counts): VCC across a 1/3 voltage divider
+* vss (counts): Ground, since the ideal value is 0
+
+The (counts) indicate that these are raw values taken from the ADC bit value. The maximum ADC resolution is 14 bits. The original goal of the example is to fade the built-in LED to match the voltage read in on one of the analog pins, but since there was nothing connected to the analog pin, it remained relatively constant.
+
+Instead, I changed the example to isolate the temperature reading since this is what we were varying and observing. Below is a video of the serial monitor as I put the Artemis board near a heater. Delay was also added to be able to read the values better. The reason why I stuck with the raw temperature values instead of changing it to celsius or farenheit is because the values were very off when using the getTempDegF() or getTempDegC() functions (much much larger than expected). Instead, we can observe the rising raw temperature values.
+
+<p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/TFjlxX5c0_A"></iframe></p>
+<p></p>
+
+As seen in the video, the temp_raw value slowly increases from around 33,000 to up to 35,000.
+
 ## Microphone Output
 
 This example demonstrates how to use the pulse density microphone (PDM) on Artemis boards. It includes the PDM (pulse-density modulation) library which is included with the Apollo3 core. PDM is a form of modulation used to represent an analog signal with a binary signal. A math library (arm_math.h) is also needed for FFT.
@@ -65,4 +84,3 @@ In this example, the PDM is first initialized before the frequency data is print
 
 <p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/W_pQSU4Htos"></iframe></p>
 <p></p>
-

@@ -1,9 +1,11 @@
 ---
 title: Labs
 layout: labs
-intro_image: "images/lab.png"
+intro_image:
 intro_image_absolute: true
 intro_image_hide_on_mobile: false
 ---
 
 # Labs
+ 
+There will be 13 labs in total. This page contains all the lab writeups and embedded videos that walk through what was done in each lab.

@@ -28,12 +28,12 @@ To familiarize ourselves with the board, we hooked up the Artemis board to our c
 
 ## Blink
 
-This Arduino example blinks the LED on the board on and off (using the delay function to pause between turning the LED on and off). To ensure that the correct LED was blinking, I added print statements before the LED was turned on or off and monitored the serial monitor.
+This Arduino example blinks the LED on the board on and off (using the `delay()` function to pause between turning the LED on and off). To ensure that the correct LED was blinking, I added print statements before the LED was turned on or off and monitored the serial monitor.
 
-```
-Serial.println("Blink on!");
-Serial.println("Blink off!");
-```
+>
+    Serial.println("Blink on!");
+    Serial.println("Blink off!");
+
 
 Below is the short clip of the board with its LED blinking and the serial monitor.
 
@@ -69,7 +69,7 @@ These are the different relevant outputs:
 
 The (counts) indicate that these are raw values taken from the ADC bit value. The maximum ADC resolution is 14 bits. The original goal of the example is to fade the built-in LED to match the voltage read in on one of the analog pins, but since there was nothing connected to the analog pin, it remained relatively constant.
 
-Instead, I changed the example to isolate the temperature reading since this is what we were varying and observing. Below is a video of the serial monitor as I put the Artemis board near a heater. Delay was also added to be able to read the values better. The reason why I stuck with the raw temperature values instead of changing it to celsius or farenheit is because the values were very off when using the getTempDegF() or getTempDegC() functions (much much larger than expected). Instead, we can observe the rising raw temperature values.
+Instead, I changed the example to isolate the temperature reading since this is what we were varying and observing. Below is a video of the serial monitor as I put the Artemis board near a heater. The `delay()` function was also added to be able to read the values better. The reason why I stuck with the raw temperature values instead of changing it to celsius or farenheit is because the values were very off when using the getTempDegF() or getTempDegC() functions (much much larger than expected). Instead, we can observe the rising raw temperature values.
 
 <p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/TFjlxX5c0_A"></iframe></p>
 <p></p>

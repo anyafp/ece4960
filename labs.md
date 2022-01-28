@@ -8,4 +8,4 @@ intro_image_hide_on_mobile: false
 
 # Labs
  
-There will be 13 labs in total. This page contains all the lab writeups and embedded videos that walk through what was done in each lab.
+There will be 13 labs in total. This page contains all the lab writeups, images, and embedded videos that walk through what was done in each lab.

@@ -13,9 +13,6 @@ In this lab, we're going to establish communication between our computer and the
 ## BLE
 
 Arduino has a library ([ArduinoBLE](https://www.arduino.cc/en/Reference/ArduinoBLE){:target="_blank"}) that supports all the Arduino boards that have the hardware enabled for Bluetooth Low Energy (BLE) and Bluetooth 4.0 and above. BLE is optimized for low power use at low data rates.
-> 
-    $ python3 --version
-    $ python3 -m pip --version
 
 ## Computer Setup
 

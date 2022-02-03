@@ -64,19 +64,54 @@ The `demo.ipynb` notebook is a demo file that helps us set up the bluetooth conn
     LOG.propagate = False
 
 ### Configuration
+
+Before connecting the board and computer, it's important to change the parameters in the file `connection.yaml` to match the Artemis address with the one that was printed in the Arduino serial output window. This is so that the computer looks for the correct board.
 >
-    # Get ArtemisBLEController object
+    artemis_address: 'C0:07:85:8D:B8:44'
+
+Then we can go ahead and create the ArtemisBLEController object (defined in `ble.py`) and connect to the device:
+>
     ble = get_ble_controller()
->
-    # Connect to the Artemis Device
     ble.connect()
 
-I had some trouble connecting the computer to the Artemis device despite having matched the artemis address in the `connection.yaml` file. The solution to this was found in the course staff's [FAQ page](https://cei-lab.github.io/ECE4960-2022/tutorials/FAQ.html){:target="_blank"} where there was a connection issue in macOS12.
-Below was the initial output of both the Python and Artemis packages.
+<p></p>
 
-<p align="left"><img src="../../images/lab2/config.png" height="2000" width="2000"></p>
-<p align="left"><img src="../../images/lab2/config.png" height="2000" width="2000"></p>
+I had some trouble connecting the computer to the Artemis device despite having matched the artemis address in the `connection.yaml` file. The solution to this was found in the course staff's [FAQ page](https://cei-lab.github.io/ECE4960-2022/tutorials/FAQ.html){:target="_blank"} where there was a connection issue in macOS12.
+Below was the initial output of the Python package.
+
+<p align="left"><img src="../../images/lab2/config-fail.png" height="2000" width="2000"></p>
 
 And once the issue was resolved, the successful connection outputs displayed, as shown below.
 <p align="left"><img src="../../images/lab2/config.png" height="2000" width="2000"></p>
 <p align="left"><img src="../../images/lab2/connect.png" height="2000" width="2000"></p>
+
+### Receive Data from the Artemis Board
+>
+    # Read a float GATT Charactersistic
+    f = ble.receive_float(ble.uuid['RX_FLOAT'])
+    print(f)
+
+Output: `807.5`
+>
+    # Read a string GATT Charactersistic
+    s = ble.receive_string(ble.uuid['RX_STRING'])
+    print(s)
+
+Output: `[->9.0<-]`
+
+### Send a Command to the Artemis Board
+>
+    ble.send_command(CMD.PING, "")
+    s = ble.receive_string(ble.uuid['RX_STRING'])
+    print(s)
+
+Output: `PONG`
+>
+    ble.send_command(CMD.SEND_TWO_INTS, "2|-6")
+<p align="left"><img src="../../images/lab2/two-ints.png" height="2000" width="2000"></p>
+
+### Disconnect
+>
+    ble.disconnect()
+
+# Lab Tasks

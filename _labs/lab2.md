@@ -38,3 +38,45 @@ __Python Packages__
 We installed __ArduinoBLE__ from the library manager in the Arduino IDE and loaded the ble_arduino.ino example sketch into the Artemis board. The Artemis board printed it's MAC address as shown below.
 
 <p align="left"><img src="../../images/lab2/mac-add.png" height="600" width="600"></p>
+
+# Code Overview
+
+## Artemis Package
+
+- insert description of files -
+
+## Python Package
+
+The `demo.ipynb` notebook is a demo file that helps us set up the bluetooth connection between the computer and the board.
+
+### Import Necessary Modules
+
+>
+    %load_ext autoreload
+    %autoreload 2
+>
+    from ble import get_ble_controller
+    from base_ble import LOG
+    from cmd_types import CMD
+    import time
+    import numpy as np
+>
+    LOG.propagate = False
+
+### Configuration
+>
+    # Get ArtemisBLEController object
+    ble = get_ble_controller()
+>
+    # Connect to the Artemis Device
+    ble.connect()
+
+I had some trouble connecting the computer to the Artemis device despite having matched the artemis address in the `connection.yaml` file. The solution to this was found in the course staff's [FAQ page](https://cei-lab.github.io/ECE4960-2022/tutorials/FAQ.html){:target="_blank"} where there was a connection issue in macOS12.
+Below was the initial output of both the Python and Artemis packages.
+
+<p align="left"><img src="../../images/lab2/config.png" height="2000" width="2000"></p>
+<p align="left"><img src="../../images/lab2/config.png" height="2000" width="2000"></p>
+
+And once the issue was resolved, the successful connection outputs displayed, as shown below.
+<p align="left"><img src="../../images/lab2/config.png" height="2000" width="2000"></p>
+<p align="left"><img src="../../images/lab2/connect.png" height="2000" width="2000"></p>

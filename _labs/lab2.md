@@ -44,8 +44,8 @@ We installed __ArduinoBLE__ from the library manager in the Arduino IDE and load
 ## Python Package
 
 The `demo.ipynb` notebook is a demo file that helps us set up the bluetooth connection between the computer and the board.
-
 <script src="https://gist.github.com/anyafp/ba2e30e060d7ff1b6c2c3657dba16224.js"></script>
+
 
 <p align="left"><img src="../../images/lab2/two-ints.png" height="600" width="600"></p>
 

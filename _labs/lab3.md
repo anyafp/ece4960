@@ -39,3 +39,9 @@ And the angular sensitivity of the sensor is related to the field of view.
 With a 16x16 ROI (region of interest), it is possible to get a 27º diagonal field of vision.
 
 With this range and angular sensitivity in mind, I've decided to place both ToF sensors at the front of the robot, side-by-side. This would result in a slight overlap in the field of view which would allow room for error correction when comparing the data received by both sensors.
+
+However, the robot would miss obstacles if they do not fall in the field of view which might be inevitable since the diagonal field of view is 27º.
+
+# Lab Tasks
+
+Scan I2C address printed: 0x29 (because bit shifted and last bit is for read write status)

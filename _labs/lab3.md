@@ -45,3 +45,5 @@ However, the robot would miss obstacles if they do not fall in the field of view
 # Lab Tasks
 
 Scan I2C address printed: 0x29 (because bit shifted and last bit is for read write status)
+
+<p align="left"><img src="../../images/lab3/i2c-add.png" height="600" width="600"></p>

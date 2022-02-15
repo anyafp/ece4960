@@ -58,18 +58,33 @@ The ToF sensor has 3 modes as shown in the table in the prelab section. The Long
 
 ### Read Distance
 
-Next, we tested the ToF sensor using the SparkFun readDistance example code. In the first half of the video, I was measuring the distance at 15cm (the length of the ruler) from the sensor to the wall. As I adjusted the position of the ToF sensor, you can see that the distance printed on the serial monitor changes. The distance does not seem super accurate, and we'll probably need to calibrate the sensor to get the true distance value.
+Next, we tested the ToF sensor using the SparkFun readDistance example code. I measured the distance of a sensor against a ruler to compare the actual vs measured distance in increments of 2.5cm up to 30cm. Below is the graph of the results.
 
-In the second half of the video, I tried using a different a different texture and color for the surface that the sensor was facing. The distance seems slightly greater than actual, but it does not seem like there is a significant difference.
+<p align="left"><img src="../../images/lab3/tof-dist.png" height="600" width="600"></p>
+<p align="left"><img src="../../images/lab3/tof-graph.png" height="400" width="400"></p>
 
-<p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/tutPGJ5YOR4"></iframe></p>
-<p></p>
+When testing the distance with different variables, we noticed that the ToF sensor does not work very well with clear objects. It would detect the object with very poor accuracy.
+
+<p align="left"><img src="../../images/lab3/tof-clear.png" height="600" width="600"></p>
 
 ### 2 ToF Sensors in Parallel
 
-Next, both ToF sensors were connected in parallel. The original script used to test the address of the ToF no longer worked with two sensors (unsure why, but might be that the script was not configured to handle more than one sensor) so instead, I used the read distance script again to make sure that, when I shutdown one of the sensors, the data received is from the other ToF sensor. As seen in the video below, the ToF sensor on the left has its shutdown pin connected to digital pin 4 on the Artemis. When I blocked the left sensor, the readings don't change. However, when I block the sensor on the right, the readings are affected.
+In order to read from both sensors, the method I chose was to change the address of one of the sensors. To do this, we first need to initialize two different sensors globally. In the setup, we shutdown one of the sensors, and change the address of one of the sensors to 0x32 (unsure why this is, but other address values that we've tried do not work; I think I saw 0x32 on some forum and used it and it works). Then we turn the other sensor back on. Below is a screenshot of the serial output of both sensor readings with the position below.
 
-<p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/tutPGJ5YOR4"></iframe></p>
-<p></p>
+<p align="left"><img src="../../images/lab3/serial-2tofs.png" height="600" width="600"></p>
+<p align="left"><img src="../../images/lab3/img-2tofs.png" height="400" width="400"></p>
 
-In order to read from both sensors, the method I chose was to change the address of one of the sensors. To do this, we need to download the [VL523L0X Arduino Library](http://robojax.com/node/1220){:target="_blank"} (from robojax.com) and include it in the header file. I followed [this tutorial](https://www.youtube.com/watch?v=RRQASevYK3g){:target="_blank"} to change the address of one of the ToF sensors (with the other sensor shutdown). I changed the address to 0x31 (but I can't print it since the original script to print the address doesn't work with more than one sensor).
+## IMU
+
+### Setup
+
+We ran the basic IMU example on Arduino and printed the results in the serial monitor as shown below. The AD0_VAL should be set to 0 because this is the value of the last bit of the I2C address. Since the ADR jumper is closed, this value should be 0.
+
+The screenshot below is the serial plotter data of the example script. The first half of the graph is when I tilted the IMU in all 4 directions. The second half of the graph is when I accelerated the IMU back and forth.
+
+<p align="left"><img src="../../images/lab3/imu-graph.png" height="800" width="800"></p>
+
+The accelerometer data changes when I accelerated the IMU back and forth, and the gyroscope data changes when I tilt the IMU in different directions.
+
+### Accelerometer
+

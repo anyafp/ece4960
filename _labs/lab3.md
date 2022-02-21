@@ -58,14 +58,14 @@ The ToF sensor has 3 modes as shown in the table in the prelab section. The Long
 
 ### Read Distance
 
-Next, we tested the ToF sensor using the SparkFun readDistance example code. I measured the distance of a sensor against a ruler to compare the actual vs measured distance in increments of 2.5cm up to 30cm. Below is the graph of the results.
+Next, we tested the ToF sensor using the SparkFun readDistance example code. 
 
-<p align="left"><img src="../../images/lab3/tof-dist.png" height="600" width="600"></p>
-<p align="left"><img src="../../images/lab3/tof-graph.png" height="400" width="400"></p>
+<p align="left"><img src="../../images/lab3/distance.png" height="550" width="550"></p>
+
 
 When testing the distance with different variables, we noticed that the ToF sensor does not work very well with clear objects. It would detect the object with very poor accuracy.
 
-<p align="left"><img src="../../images/lab3/tof-clear.png" height="600" width="600"></p>
+<p align="left"><img src="../../images/lab3/tof-clear.png" height="450" width="450"></p>
 
 ### 2 ToF Sensors in Parallel
 

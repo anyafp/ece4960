@@ -14,6 +14,9 @@ In this lab, we characterized our car to leverage the remote control and familia
 
 __What are the dimensions of the car?__
 
+<p align="left"><img src="../../images/lab4/height-car.jpeg" height="600" width="600"></p>
+<p align="left"><img src="../../images/lab4/length-car.jpeg" height="400" width="400"></p>
+
 __What is the weight?__
 
 __How long does it take to charge?__

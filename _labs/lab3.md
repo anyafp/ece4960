@@ -110,7 +110,7 @@ Below is the output for pitch when rotating it {90, 0, -90} degrees.
 
 <p align="left"><img src="../../images/lab3/roll-rot.png" height="600" width="600"></p>
 
-__Accuracy__
+#### Accuracy
 
 Below is the difference between measured and actual pitch and roll readings.
 
@@ -125,3 +125,5 @@ __Pitch:__
 __Roll:__
 
 <p align="left"><img src="../../images/lab3/roll-freq.png" height="600" width="600"></p>
+
+From observing the frequency response, a good low pass filter to use would be one with a cut-off frequency at 0.00003Hz.

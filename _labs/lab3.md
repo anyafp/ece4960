@@ -62,6 +62,7 @@ Next, we tested the ToF sensor using the SparkFun readDistance example code.
 
 <p align="left"><img src="../../images/lab3/distance.png" height="550" width="550"></p>
 
+I took the measurements in 2cm increments from 2cm to 30cm and repeated this two more times. Plotted above are the measurements, the absolute difference between measured and actual distance to represent accuracy, and the standard deviation of the three readings at every 2cm point to represent repeatability.
 
 When testing the distance with different variables, we noticed that the ToF sensor does not work very well with clear objects. It would detect the object with very poor accuracy.
 
@@ -76,15 +77,51 @@ In order to read from both sensors, the method I chose was to change the address
 
 ## IMU
 
+An IMU is a specific type of sensor that measures angular rate, force and sometimes magnetic field. We use it mainly for it's accelerometer and gyroscope data. The accelerometer measures linear acceleration while the gyroscope measures angular velocity.
+ 
 ### Setup
 
 We ran the basic IMU example on Arduino and printed the results in the serial monitor as shown below. The AD0_VAL should be set to 0 because this is the value of the last bit of the I2C address. Since the ADR jumper is closed, this value should be 0.
 
-The screenshot below is the serial plotter data of the example script. The first half of the graph is when I tilted the IMU in all 4 directions. The second half of the graph is when I accelerated the IMU back and forth.
+The video below shows the change in data as I change the orientation of the IMU as well as move it side to side.
 
-<p align="left"><img src="../../images/lab3/imu-graph.png" height="800" width="800"></p>
+<p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/M3UBYM29VOk"></iframe></p>
+<p></p>
 
-The accelerometer data changes when I accelerated the IMU back and forth, and the gyroscope data changes when I tilt the IMU in different directions.
+The accelerometer data changes when I accelerated the IMU back and forth (or up and down), and the gyroscope data changes when I tilt the IMU in different directions.
 
 ### Accelerometer
 
+In order to find the pitch and roll, we used the equations discussed in class:
+
+<img src="https://render.githubusercontent.com/render/math?math=\theta = Pitch = atan(\frac{a_{x}}{a_{z}})">
+<br>
+<img src="https://render.githubusercontent.com/render/math?math=\phi = Roll = atan(\frac{a_{y}}{a_{z}})">
+
+#### Pitch
+
+Below is the output for pitch when rotating it {90, 0, -90} degrees.
+
+<p align="left"><img src="../../images/lab3/pitch-rot.png" height="600" width="600"></p>
+
+#### Roll
+
+Below is the output for pitch when rotating it {90, 0, -90} degrees.
+
+<p align="left"><img src="../../images/lab3/roll-rot.png" height="600" width="600"></p>
+
+__Accuracy__
+
+Below is the difference between measured and actual pitch and roll readings.
+
+<p align="left"><img src="../../images/lab3/table-diff.png" height="600" width="600"></p>
+
+#### Frequency Response
+
+__Pitch:__
+
+<p align="left"><img src="../../images/lab3/pitch-freq.png" height="600" width="600"></p>
+
+__Roll:__
+
+<p align="left"><img src="../../images/lab3/roll-freq.png" height="600" width="600"></p>

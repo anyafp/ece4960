@@ -143,7 +143,7 @@ __Roll:__
 
 <p align="left"><img src="../../images/lab3/roll-freq.png" height="600" width="600"></p>
 
-To get the FFT of the pitch and roll data, I used T = 0.00345s, Fs = 290. From observing the frequency response, there is no obvious spike in amplitude at any one frequency as one would suspect with taps on the IMU. This is because there is an niternal low-pass filter activated that makes the filters out the taps on the IMU.
+To get the FFT of the pitch and roll data, I used T = 0.00345s, Fs = 290Hz. From observing the frequency response, there is no obvious spike in amplitude at any one frequency as one would suspect with taps on the IMU. This is because there is an niternal low-pass filter activated that makes the filters out the taps on the IMU.
 
 ### Gyroscope
 

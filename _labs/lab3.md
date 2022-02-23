@@ -1,5 +1,5 @@
 ---
-title: "Lab 3: TOF & IMU"
+title: "Lab 3: ToF & IMU"
 date: 2018-11-28T15:14:54+10:00
 featured: true
 weight: 3
@@ -113,19 +113,13 @@ In order to find the pitch and roll, we used the equations discussed in class:
 <br>
 <img src="https://render.githubusercontent.com/render/math?math=\phi = Roll = atan(\frac{a_{y}}{a_{z}})">
 
-#### Pitch
-
 Below is the output for pitch when rotating it {90, 0, -90} degrees.
 
 <p align="left"><img src="../../images/lab3/pitch-rot.png" height="600" width="600"></p>
 
-#### Roll
-
 Below is the output for pitch when rotating it {90, 0, -90} degrees.
 
 <p align="left"><img src="../../images/lab3/roll-rot.png" height="600" width="600"></p>
-
-#### Accuracy
 
 Below is the difference between measured and actual pitch and roll readings.
 
@@ -135,6 +129,8 @@ The difference between the actual and measured readings are not too far off and 
 
 #### Frequency Response
 
+In order to determine a good low pass filter, we tapped the IMU, took the pitch and roll values, and plotted the FFT graphs as seen below.
+
 __Pitch:__
 
 <p align="left"><img src="../../images/lab3/pitch-freq.png" height="600" width="600"></p>
@@ -143,7 +139,7 @@ __Roll:__
 
 <p align="left"><img src="../../images/lab3/roll-freq.png" height="600" width="600"></p>
 
-To get the FFT of the pitch and roll data, I used T = 0.00345s, Fs = 290Hz. From observing the frequency response, there is no obvious spike in amplitude at any one frequency as one would suspect with taps on the IMU. This is because there is an niternal low-pass filter activated that makes the filters out the taps on the IMU.
+To get the FFT of the pitch and roll data, I used T = 0.00345s, Fs = 290Hz. From observing the frequency response, there is no obvious spike in amplitude at any one frequency as one would suspect with taps on the IMU. This is because there is an internal low-pass filter activated that makes the filters out the taps on the IMU.
 
 ### Gyroscope
 
@@ -171,3 +167,19 @@ The drift is caused by the the accumulation of error over time due to the nature
 Below are the readings to determine accuracy. Although the readings are more accurate at 90º, they get more inaccurate at larger values of pitch and roll. Note that these values were also taken very soon after initializing the board so as to exclude drift as much as possible.
 
 <p align="left"><img src="../../images/lab3/table-diff-gyro.png" height="600" width="600"></p>
+
+### Complementary
+
+Since the accelerometer produces accurate but noisy pitch/roll, and the gyroscope produces inaccurate but less noisy pitch/roll, we decided to leverage on both of the values to create a complementary pitch/roll value that takes into account both accelerometer and gyroscope data. (regard the plus minus signs as +... it was not working for some reason).
+
+<img src="https://render.githubusercontent.com/render/math?math=\theta = Pitch = (\theta \pm \theta_{g}*dt)(1-\alpha) \pm \theta_{a}*\alpha">
+<br>
+<img src="https://render.githubusercontent.com/render/math?math=\phi = Pitch = (\phi \pm \phi_{g}*dt)(1-\alpha) \pm \phi_{a}*\alpha">
+
+<p align="left"><img src="../../images/lab3/comp-stable.png" height="600" width="600"></p>
+
+The values are still slightly noisy when I keep the IMU flat, but this is better than the readings without the gyroscope. The readings are still noisy because I set the value of alpha (the weightage of the accelerometer data) to be 0.8. This is because I prioritized accuracy over minimizing noise. Because of this, there is also much less drift.
+
+<p align="left"><img src="../../images/lab3/comp-table.png" height="600" width="600"></p>
+
+It is also evident that the accuracy is much higher than when using the gyroscope data, and comparable to the accelerometer data.

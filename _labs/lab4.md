@@ -8,6 +8,12 @@ layout: lab
 
 In this lab, we characterized our car to leverage the remote control and familiarize ourselves with the capabilities of the hardware. This is in hopes of replicating the manual behavior with autonomous control (and maybe exceed what manual control can do). We did some tests and took measurements in 2 different categories below.
 
+# Prelab
+
+I swapped the wires for the battery so that it could be connected to the board with the colors matching (red positive, black negative). 
+
+<p align="left"><img src="../../images/lab4/battery.png" height="600" width="600"></p>
+
 # Category A Measurements
 
 ## What are the dimensions of the car?

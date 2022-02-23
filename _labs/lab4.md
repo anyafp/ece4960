@@ -8,8 +8,6 @@ layout: lab
 
 In this lab, we characterized our car to leverage the remote control and familiarize ourselves with the capabilities of the hardware. This is in hopes of replicating the manual behavior with autonomous control (and maybe exceed what manual control can do). We did some tests and took measurements in 2 different categories below.
 
-# Prelab
-
 # Category A Measurements
 
 ## What are the dimensions of the car?

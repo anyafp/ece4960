@@ -44,6 +44,10 @@ However, the robot would miss obstacles if they do not fall in the field of view
 
 # Lab Tasks
 
+## Connections
+
+<p align="left"><img src="../../images/lab3/connections.jpeg" height="600" width="600"></p>
+
 ## ToF
 
 ### Scanning I2C Address
@@ -54,7 +58,7 @@ Using one ToF sensor, the address printed was 0x29. This is because the address 
 
 ### ToF Modes
 
-The ToF sensor has 3 modes as shown in the table in the prelab section. The Long mode is the best to capture longer ranges, but it works best in a darker environment. If the environment is very bright, the Short mode would allow for more range.
+The ToF sensor has 3 modes as shown in the table in the prelab section. If we don't need to detect a distance of more than 136cm, we should use the Short mode because this is the maximum range in any environment (bright and dark). However, if we want a longer range, we should first ensure that in an environment that's not too bright and use either the Medium or Long mode depending on the range we need. The Short mode might be best for the final robot since it would operate in a well lit area. But this depends on the setup of potential obstacles and how far away they will be from the robot.
 
 ### Read Distance
 
@@ -63,6 +67,14 @@ Next, we tested the ToF sensor using the SparkFun readDistance example code.
 <p align="left"><img src="../../images/lab3/distance.png" height="550" width="550"></p>
 
 I took the measurements in 2cm increments from 2cm to 30cm and repeated this two more times. Plotted above are the measurements, the absolute difference between measured and actual distance to represent accuracy, and the standard deviation of the three readings at every 2cm point to represent repeatability.
+
+<p align="left"><img src="../../images/lab3/timing.png" height="400" width="400"></p>
+
+Above is the time it takes for the sensor to get the data and below is the code used to generate this:
+
+<script src="https://gist.github.com/anyafp/1957cb3991ce8b23fe04d27bdf5b07fd.js"></script>
+
+In order to get the range of the ToF sensor, I made the ToF face a wall and walked back as far as possible whilst still getting reasonable readings. The distance value reached about 4000mm (400m) before it started decreasing as I walked further back. This is as expected since the maximum possible range is 360cm (the reason I got 400cm was maybe because the value became less accurate nearing 400cm beyond 360cm).
 
 When testing the distance with different variables, we noticed that the ToF sensor does not work very well with clear objects. It would detect the object with very poor accuracy.
 
@@ -74,6 +86,9 @@ In order to read from both sensors, the method I chose was to change the address
 
 <p align="left"><img src="../../images/lab3/serial-2tofs.png" height="600" width="600"></p>
 <p align="left"><img src="../../images/lab3/img-2tofs.png" height="400" width="400"></p>
+
+And this is the Arduino code:
+<script src="https://gist.github.com/anyafp/65717e0550facb59a155ea90a9e570a4.js"></script>
 
 ## IMU
 
@@ -116,6 +131,8 @@ Below is the difference between measured and actual pitch and roll readings.
 
 <p align="left"><img src="../../images/lab3/table-diff.png" height="600" width="600"></p>
 
+The difference between the actual and measured readings are not too far off and relatively accurate.
+
 #### Frequency Response
 
 __Pitch:__
@@ -126,4 +143,31 @@ __Roll:__
 
 <p align="left"><img src="../../images/lab3/roll-freq.png" height="600" width="600"></p>
 
-From observing the frequency response, a good low pass filter to use would be one with a cut-off frequency at 0.00003Hz.
+To get the FFT of the pitch and roll data, I used T = 0.00345s, Fs = 290. From observing the frequency response, there is no obvious spike in amplitude at any one frequency as one would suspect with taps on the IMU. This is because there is an niternal low-pass filter activated that makes the filters out the taps on the IMU.
+
+### Gyroscope
+
+For the gyroscope, I used the equations from class to get the pitch and roll:
+
+<img src="https://render.githubusercontent.com/render/math?math=\theta = Pitch = \theta \pm g_{x} * dt">
+<br>
+<img src="https://render.githubusercontent.com/render/math?math=\phi = Roll = \phi \pm g_{z} * dt">
+
+The plus/minus sign indicates that this depends on the orientation of the sensor. Below is a video of the output as I tilt the IMU:
+
+<p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/efUc524HQd8"></iframe></p>
+<p></p>
+
+With a sampling frequency of 90Hz, the pitch and roll values are as follows when I keep the IMU flat on the table:
+
+<p align="left"><img src="../../images/lab3/drift-90.png" height="600" width="600"></p>
+
+If I change the sampling frequency to 180Hz, the drift decreases significantly for the same period of time:
+
+<p align="left"><img src="../../images/lab3/drift-180.png" height="600" width="600"></p>
+
+The drift is caused by the the accumulation of error over time due to the nature of the equation we use. For the higher sampling frequency, there is less error to accumulate between readings.
+
+Below are the readings to determine accuracy. Although the readings are more accurate at 90º, they get more inaccurate at larger values of pitch and roll. Note that these values were also taken very soon after initializing the board so as to exclude drift as much as possible.
+
+<p align="left"><img src="../../images/lab3/table-diff-gyro.png" height="600" width="600"></p>

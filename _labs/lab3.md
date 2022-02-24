@@ -117,7 +117,7 @@ Below is the output for pitch when rotating it {90, 0, -90} degrees.
 
 <p align="left"><img src="../../images/lab3/pitch-rot.png" height="600" width="600"></p>
 
-Below is the output for pitch when rotating it {90, 0, -90} degrees.
+Below is the output for roll when rotating it {90, 0, -90} degrees.
 
 <p align="left"><img src="../../images/lab3/roll-rot.png" height="600" width="600"></p>
 

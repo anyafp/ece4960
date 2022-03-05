@@ -72,7 +72,10 @@ I set the motors to the PWM value of 100 and set it to stop after 3 seconds as s
 
 I tested slower speeds on the car travelling on both carpet and the floor. The lowest speed that the car can go while still moving at the expected speed is when the PWM value was 35.
 
-In order to determine whether the motors spin at the same speed, I set the PWM values to a smaller value (50) to make sure that the car goes slow enough to tell whether the car deviates from the straight line. 
+In order to determine whether the motors spin at the same speed, I set the PWM values to the lowest value (35) to make sure that the car goes slow enough to tell whether it deviates from the straight line. As you can see in the first half of the video, the robot travels along the straight electric tape on the ground and does not deviate much. I wanted to test this with a greater speed (100) to see how the car would perform, which you can see in the second half of the video. The car would travel more to its left, before realigning and going in a straight line. This is because the time it takes for each motor to reach the final speed is different (their accelerations are different). However, after it reaches the final speed, the motors spin at approximately the same speed. Thus, no calibration was needed for the motors.
+
+<p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/nwjPxJTxSLg"></iframe></p>
+<p></p>
 
 ### Open Loop Control
 

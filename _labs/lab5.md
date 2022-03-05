@@ -64,3 +64,21 @@ Similar to the example with one motor, the exact same thing should happen but th
 Now that I knew that both motors work, I could secure everything in the car and run it on its own.
 
 <p align="left"><img src="../../images/lab5/car-connect.jpeg" height="600" width="600"></p>
+
+I set the motors to the PWM value of 100 and set it to stop after 3 seconds as shown below. After testing it out, I realized that the battery was not secured under the Artemis and had to add more tape to make sure it wouldn't fall out.
+
+<p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/Mi4DbLcJPJg"></iframe></p>
+<p></p>
+
+I tested slower speeds on the car travelling on both carpet and the floor. The lowest speed that the car can go while still moving at the expected speed is when the PWM value was 35.
+
+In order to determine whether the motors spin at the same speed, I set the PWM values to a smaller value (50) to make sure that the car goes slow enough to tell whether the car deviates from the straight line. 
+
+### Open Loop Control
+
+Below is the code and video of the robot car demonstrating open loop control:
+
+<script src="https://gist.github.com/anyafp/d73424e92352c9beaa9b1a8e69aeaf2d.js"></script>
+
+<p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/JPmAf-bs29M"></iframe></p>
+<p></p>

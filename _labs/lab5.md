@@ -81,6 +81,12 @@ In order to determine whether the motors spin at the same speed, I set the PWM v
 
 Below is the code and video of the robot car demonstrating open loop control:
 
+<style type="text/css">
+  .gist {width:500px !important;}
+  .gist-file
+  .gist-data {max-height: 500px;max-width: 500px;}
+</style>
+
 <script src="https://gist.github.com/anyafp/d73424e92352c9beaa9b1a8e69aeaf2d.js"></script>
 
 <p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/JPmAf-bs29M"></iframe></p>

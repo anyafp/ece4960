@@ -10,4 +10,4 @@ In this lab, we used what we learned from lecture about PID control and implemen
 
 # Prelab
 
-For this prelab, we needed to ensure the bluetooth connections 
+For this prelab, we needed to ensure the bluetooth connections works, and format the information as necessary. In order to do this, I edited the Arduino script 

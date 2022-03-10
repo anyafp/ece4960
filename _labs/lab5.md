@@ -36,6 +36,12 @@ I chose a 3.7V power supply so as to mimic the voltage of the batteries that we 
 
 I first set pin 7 to 0 and pin 12 to 100 and got the oscilloscope output as shown below.
 
+<style type="text/css">
+  .gist {width:750px !important;}
+  .gist-file
+  .gist-data {max-height: 500px;max-width: 750px;}
+</style>
+
 <script src="https://gist.github.com/anyafp/2233df9d85f6677e564823ad0609fece.js"></script>
 <p align="left"><img src="../../images/lab5/oscill-100.png" height="600" width="600"></p>
 
@@ -45,6 +51,12 @@ Changing pin 12 to 200 gives this output:
 
 These were expected results so I did not try other combinations of PWM values. I then moved on to taking my car apart and replacing the oscilloscope connections with connections to the motor. I used the code below instead to show that the motors can run in both directions.
 
+<style type="text/css">
+  .gist {width:750px !important;}
+  .gist-file
+  .gist-data {max-height: 500px;max-width: 750px;}
+</style>
+
 <script src="https://gist.github.com/anyafp/99c13088001cc9c8639288d948f2f8ac.js"></script>
 
 As you can tell from the code, the motor should run in one direction for 1s, pause for 1s, run in the other direction, and pause for another second before repeating this cycle. I was supposed to use the power supply but jumped straight to using the battery because the battery supplied a more stable current than the power supply (i.e. the motor was more jittery with the power supply). Below is a video showing the motors running with the battery. The pause in the video seems less than 1 second because it takes some time for the motors to come to a stop (which eats into the pause time).
@@ -53,6 +65,12 @@ As you can tell from the code, the motor should run in one direction for 1s, pau
 <p></p>
 
 Next, I soldered the second motor similar to the first (with the connections shown in the Prelab) and ran this code on the Artemis:
+
+<style type="text/css">
+  .gist {width:750px !important;}
+  .gist-file
+  .gist-data {max-height: 500px;max-width: 750px;}
+</style>
 
 <script src="https://gist.github.com/anyafp/6922b98aac0f3f95de7d4318f733c419.js"></script>
 
@@ -82,9 +100,9 @@ In order to determine whether the motors spin at the same speed, I set the PWM v
 Below is the code and video of the robot car demonstrating open loop control:
 
 <style type="text/css">
-  .gist {width:500px !important;}
+  .gist {width:750px !important;}
   .gist-file
-  .gist-data {max-height: 500px;max-width: 500px;}
+  .gist-data {max-height: 500px;max-width: 750px;}
 </style>
 
 <script src="https://gist.github.com/anyafp/d73424e92352c9beaa9b1a8e69aeaf2d.js"></script>

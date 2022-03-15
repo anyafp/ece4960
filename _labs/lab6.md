@@ -73,7 +73,7 @@ As you can see from the video, with a Kp value of 0.03, the car slightly hits th
 
 ## Task A - P(I)D
 
-I added in the code to find the derivative and add it to the speed of the motors.
+I added in the equation to find the derivative and add it to the speed of the motors.
 
 <style type="text/css">
   .gist {width:750px !important;}

@@ -50,7 +50,7 @@ For this task, we had to use PID control to ensure that the car stops 300m (30cm
 
 <script src="https://gist.github.com/anyafp/c574ca392cbf173d52032e216ce01424.js"></script>
 
-I added a limiting range to ensure that even as the speed goes beyond the maximum or below the minimum, it would still move.
+I added a limiting range function to ensure that even as the speed goes beyond the maximum or below the minimum, it would still move.
 
 <style type="text/css">
   .gist {width:750px !important;}

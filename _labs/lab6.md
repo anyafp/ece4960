@@ -28,6 +28,14 @@ When I'm storing data, I don't want to store too many data points unnecessarily 
 
 <script src="https://gist.github.com/anyafp/9ae0be747ff4c55c6a6a3d5ed31cc077.js"></script>
 
+<style type="text/css">
+  .gist {width:750px !important;}
+  .gist-file
+  .gist-data {max-height: 500px;max-width: 750px;}
+</style>
+
+<script src="https://gist.github.com/anyafp/fb28dc42352e5dfc9ad7bfc2eac0f925.js"></script>
+
 # Lab Tasks
 
 ## Task A - P(ID)

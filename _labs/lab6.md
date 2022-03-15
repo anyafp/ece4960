@@ -60,7 +60,7 @@ I added a limiting range to ensure that even as the speed goes beyond the maximu
 
 <script src="https://gist.github.com/anyafp/b6b1b1bc855544e59bfc137e753602c2.js"></script>
 
-After ensuring that the P(ID) control works, I needed to figure out what Kp value works. I did a lot of trial and error to find the values and these are the plots generated with different starting points and Kp values
+After ensuring that the P(ID) control works, I needed to figure out what Kp value works. I did a lot of trial and error to find the values and these are the plots generated with different starting points and Kp values.
 
 ### Kp = 0.03; Starting Point = ~2m
 

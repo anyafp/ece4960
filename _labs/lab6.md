@@ -92,4 +92,4 @@ I tried different variations of Kp and Kd and found that Kp = 0.03 and Kd = 0.05
 
 <p align="left"><img src="../../images/lab6/A-PD-2m-03-05.png" height="1000" width="1000"></p>
 
-As seen in the plots above, the car takes less oscillations to reach the stable state (300mm) and less time to do so, which indicates that it performs better than only having the proportional part of the PID control. This, however, is very dependent on the Kp and Kd values chosen as I had to do a lot of trial and error with the values before getting a run that performed better than only the P(ID) control.
+As seen in the plots above, the car takes less oscillations to reach the stable state (300mm) and less time to do so, which indicates that it performs better than only having the P(ID) control. This, however, is very dependent on the Kp and Kd values chosen as I had to do a lot of trial and error with the values before getting a run that performed better than only the P(ID) control.

@@ -62,8 +62,6 @@ I added a limiting range function to ensure that even as the speed goes beyond t
 
 After ensuring that the P(ID) control works, I needed to figure out what Kp value works. I did a lot of trial and error to find the values and these are the plots generated with different starting points and Kp values.
 
-### Kp = 0.03; Starting Point = ~2m
-
 Below is the video demonstration and data points with the above configurations. The time scale is a bit off since I had started the task a while after connecting to bluetooth, but that would just need a shift in the x-axis values which does not affect the y-axis readings.
 
 <p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/Y3R6rwAZxrI"></iframe></p>

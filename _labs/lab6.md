@@ -57,4 +57,4 @@ And now the video demo and data points with starting point that is further away.
 
 <p align="left"><img src="../../images/lab6/A-3m-03.png" height="1000" width="1000"></p>
 
-As expected, because the error starts off higher when the starting distance is further away, this gives the car less time to slow down and rams harder into the wall than when the starting distance was 2m instead.
+As expected, because the error (and thus speed, as seen in the speed plot) starts off higher when the starting distance is further away, this gives the car less time to slow down and rams harder into the wall than when the starting distance was 2m instead.

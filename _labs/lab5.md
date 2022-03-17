@@ -18,7 +18,7 @@ __What pins will you use for control on the Artemis?__
 
 __We recommend powering the Artemis and the motor drivers/motors from separate batteries. Why is that?__
 
-This is because the motors draw a lot of current and the Artemis is not able to provide the power demand that the motors require, thus you need a seperate battery that can afford to release a lot more current than the MCU.
+This is because the motors draw a lot of current and the Artemis does not require as much, it makes sense to use different batteries to power each one; the battery with higher energy capacity (850mAh) is used for the motors while the one with lower energy capacity (650mAh) is used for the Artemis.
 
 __Routing paths__
 
@@ -26,7 +26,7 @@ One way that we've attempted to suppress noise is to twist the wires and cables.
 
 # Lab Tasks
 
-I first soldered the motor drivers to the Artemis board and connected make the connections as shown below:
+I first soldered the motor drivers to the Artemis board and made the connections as shown below:
 
 <p align="left"><img src="../../images/lab5/motor-oscill.jpeg" height="600" width="600"></p>
 
@@ -88,9 +88,9 @@ I set the motors to the PWM value of 100 and set it to stop after 3 seconds as s
 <p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/Mi4DbLcJPJg"></iframe></p>
 <p></p>
 
-I tested slower speeds on the car travelling on both carpet and the floor. The lowest speed that the car can go while still moving at the expected speed is when the PWM value was 35.
+I tested slower speeds on the car travelling on both carpet and the floor. The lowest speed that the car can go while still moving at the expected speed is when the PWM value was 25.
 
-In order to determine whether the motors spin at the same speed, I set the PWM values to the lowest value (35) to make sure that the car goes slow enough to tell whether it deviates from the straight line. As you can see in the first half of the video, the robot travels along the straight electric tape on the ground and does not deviate much. I wanted to test this with a greater speed (100) to see how the car would perform, which you can see in the second half of the video. The car would travel more to its left, before realigning and going in a straight line. This is because the time it takes for each motor to reach the final speed is different (their accelerations are different). However, after it reaches the final speed, the motors spin at approximately the same speed. Thus, no calibration was needed for the motors.
+In order to determine whether the motors spin at the same speed, I set the PWM values to the lowest value (25) to make sure that the car goes slow enough to tell whether it deviates from the straight line. As you can see in the first half of the video, the robot travels along the straight electric tape on the ground and does not deviate much. I wanted to test this with a greater speed (100) to see how the car would perform, which you can see in the second half of the video. The car would travel more to its left, before realigning and going in a straight line. This is because the time it takes for each motor to reach the final speed is different (their accelerations are different). However, after it reaches the final speed, the motors spin at approximately the same speed. Thus, no calibration was needed for the motors.
 
 <p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/nwjPxJTxSLg"></iframe></p>
 <p></p>

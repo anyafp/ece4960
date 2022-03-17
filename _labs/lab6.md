@@ -11,14 +11,14 @@ In this lab, we used what we learned from lecture about PID control and implemen
 
 In order to get the lab to run smoothly, we need to send data to our laptops from the sensors on the car. Since I was planning on doing Task A, I focused on sending the data of only the front ToF sensor. It would be way too slow to send the data everytime I receive new data (ie every 0.5s) so the best way to go about this is the store the data first in the Artemis, and send it over when needed. The steps I took are as follows:
 
-1. Laptop --> Car: Manually send start_task command.
+1. Laptop --> Car: Manually send `start_task()` command.
 2. Car: PID control while storing ToF data, speed, and timestamps in arrays.
-3. Laptop --> Car: Manually send stop_task command when I see that the task has been completed.
-Car --> Laptop: Automatically sends the number of data points collected (which is either the size of the array or less).
+3. Laptop --> Car: Manually send `stop_task()` command when I see that the task has been completed.
+4. Car --> Laptop: Sends the number of data points collected (which is either the size of the array or less) when `get_size()` is sent from laptop to car.
 4. Laptop: Goes through a for loop and requests from the car the ToF data, speed and timestamps at every index from car. Car sends data at every index. Laptop stores it in an array. This step can take quite a while if we have a lot of data points.
-5. Plot 2 graphs.
+5. Plot graphs.
 
-When I'm storing data, I don't want to store too many data points unnecessarily so I chose to sample every 0.5s. Another issue that I wanted to combat is ensuring that I don't exceed the internal RAM of 384kB. After testing out how many data points I need to test Task A, I found out that an array size of 150 is sufficient. I would increment the index, and reset it to 0 if I exceed the array size. This is where the timestamps come in handy because it wouldn't matter where the data points are in the array if they correspond to their timestamp.
+When I'm storing data, I don't want to store too many data points unnecessarily so I chose to store readings every 0.5s. Since the rate I store the data at is slower than the sampling rate, I had two separate functions for them, `store_data()` and `sensor_data()`. Another issue that I wanted to combat is ensuring that I don't exceed the internal RAM of 384kB. After testing out how many data points I need to test Task A, I found out that an array size of 150 is sufficient. I would increment the index, and reset it to 0 if I exceed the array size. This is where the timestamps come in handy because it wouldn't matter where the data points are in the array if they correspond to their timestamp.
 
 <style type="text/css">
   .gist {width:750px !important;}
@@ -62,14 +62,26 @@ I added a limiting range function to ensure that even as the speed goes beyond t
 
 After ensuring that the P(ID) control works, I needed to figure out what Kp value works. I did a lot of trial and error to find the values and these are the plots generated with different starting points and Kp values.
 
-Below is the video demonstration and data points with the Kp = 0.03, starting point = ~2m configurations. The time scale is a bit off since I had started the task a while after connecting to bluetooth, but that would just need a shift in the x-axis values which does not affect the y-axis readings.
+Below is the video demonstration and data points with the Kp = 0.03, starting point = ~2.5m configurations. The video shows the three runs I did to ensure consistency, and the graph shows the three data plots for each run (although the videos look almost identical, it was either that I accidentally used the same video thrice, or that I just took very very consistent videos... you can see in the plots that they are actually different runs).
 
-<p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/Y3R6rwAZxrI"></iframe></p>
+<p align="left"><img src="../../images/lab6/A-P.png" height="1000" width="1000"></p>
+
+<p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/1yALPxBgoug"></iframe></p>
 <p></p>
 
-<p align="left"><img src="../../images/lab6/A-P-2m-03.png" height="1000" width="1000"></p>
+As you can see from the video, with a Kp value of 0.03, the car almost hits the wall before moving back slightly. This can also be seen in the data plots where the distance hits close to 0 before oscillating once to reach 300mm. The reason the car overshoots is because it's only using the proportional value of the error and does not take into account the integral or derivative and hence I tried including the derivative.
 
-As you can see from the video, with a Kp value of 0.03, the car slightly hits the wall before moving back slightly. This can also be seen in the data plots where the distance hits close to 0 before oscillating to reach 300. The reason the car overshoots is because it's only using the proportional value of the error and does not take into account the integral or derivative and hence I tried including the derivative.
+Although the graph shows that the final distance is around 300mm, I printed the last data point that the sensor read to see what the actual reading was.
+
+<style type="text/css">
+  .gist {width:750px !important;}
+  .gist-file
+  .gist-data {max-height: 500px;max-width: 750px;}
+</style>
+
+<script src="https://gist.github.com/anyafp/fab13695221d689c71922cf75eb44726.js"></script>
+
+It seems like the value was not actually 300mm although according to the conditions set, it should theoretically only stop when it reaches exactly 300mm, but this disparity between what is expected and the actual values is not shocking.
 
 ## Task A - P(I)D
 

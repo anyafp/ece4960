@@ -95,11 +95,13 @@ I added in the equation to find the derivative and add it to the speed of the mo
 
 <script src="https://gist.github.com/anyafp/b975c26ea27371440354baedc86c5074.js"></script>
 
-I tried different variations of Kp and Kd and found that Kp = 0.03 and Kd = 0.05 worked better than the previous run. Below are the video demo and data plots.
+I tried a few Kp and Kd values and realized that, because of the improvement in performance of the car with the P(I)D control, I was able to use a higher Kp value than previously while still not crashing into a wall. This is good because with the P(ID) control, with a Kp value any higher than 0.3, the car would have crashed into the wall because it would be going too fast. Trial and error has gotten me a Kd value of 0.08.
 
-<p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/atbrFemJw8E"></iframe></p>
+<p align="left"><img src="../../images/lab6/A-PD.png" height="1500" width="1500"></p>
+
+<p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/c1OC96CfC0E"></iframe></p>
 <p></p>
 
-<p align="left"><img src="../../images/lab6/A-PD-2m-03-05.png" height="1500" width="1500"></p>
+
 
 As seen in the plots above, the car takes less oscillations to reach the stable state (300mm) and less time to do so, which indicates that it performs better than only having the P(ID) control. This, however, is very dependent on the Kp and Kd values chosen as I had to do a lot of trial and error with the values before getting a run that performed better than only the P(ID) control.

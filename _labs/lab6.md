@@ -85,7 +85,7 @@ It seems like the value was not actually 300mm although according to the conditi
 
 ## Task A - P(I)D
 
-I added in the equation to find the derivative and add it to the speed of the motors.
+I added in the equation to find the derivative and add it to the speed of the motors. By adding the Kd value, when the change in the error is negative (the error is getting less), the Kd value would be negative and would subtract PWM value from the Kp to result in a lower `speed_val`. This means that the speed would slow down quicker, and can afford to start off at a higher speed.
 
 <style type="text/css">
   .gist {width:750px !important;}
@@ -102,6 +102,14 @@ I tried a few Kp and Kd values and realized that, because of the improvement in 
 <p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/c1OC96CfC0E"></iframe></p>
 <p></p>
 
+As seen above, the P(ID) control takes approx. 6s to reach the goal while the P(I)D control takes  approx. 4s on average to reach the goal.
 
+<style type="text/css">
+  .gist {width:750px !important;}
+  .gist-file
+  .gist-data {max-height: 500px;max-width: 750px;}
+</style>
 
-As seen in the plots above, the car takes less oscillations to reach the stable state (300mm) and less time to do so, which indicates that it performs better than only having the P(ID) control. This, however, is very dependent on the Kp and Kd values chosen as I had to do a lot of trial and error with the values before getting a run that performed better than only the P(ID) control.
+<script src="https://gist.github.com/anyafp/6ed8c331ba14f1a880626ad0efa08090.js"></script>
+
+Again, I printed out the final sensor values and it seems like the P(I)D control has more accurate results. I'm not 100% sure why, but because there's less oscillation, the car reaches the target destination faster and more accurately stops at the right position.

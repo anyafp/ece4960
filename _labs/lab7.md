@@ -59,8 +59,7 @@ The C matrix used was the one provided in lecture:
 
 ## Kalman Filter (Sanity Check)
 
-Finally, we put together all the values we found in the previous section. This is illustrated in the code snippet below along with the Kalman Filter code provided to us
-Below is the code snippet showing a summary of the above two sections, where we obtained the d and m values, got the A, B and C matrices, and calculated the covariance matrices. We discretized the A and B matrices, and calculated the KF estimation before running it on some data I had from Lab 6.
+Finally, we put together all the values we found in the previous section. Below is the code snippet showing a summary of the above two sections, where we obtained the d and m values, got the A, B and C matrices, and calculated the covariance matrices. We discretized the A and B matrices, and calculated the KF estimation before running it on some data I had from Lab 6.
 
 <style type="text/css">
   .gist {width:750px !important;}
@@ -87,3 +86,23 @@ Changing sig3 would put less stress on the sensors (in the case where we think t
 
 <img src="https://render.githubusercontent.com/render/math?math=\sigma_{1} = 10, \sigma_{2} = 10, \sigma_{3} = 200">
 <p align="left"><img src="../../images/lab7/kf-test3.png" height="500" width="500"></p>
+
+## Kalman Filter on Robot
+
+Now all we need to do is transfer the code from python to Arduino (which is easier than it sounds..). Below is the relevant code snippets of initializing all the variables needed, implementing the filter itself, and incorporating the filter into the PID control.
+
+<style type="text/css">
+  .gist {width:750px !important;}
+  .gist-file
+  .gist-data {max-height: 500px;max-width: 750px;}
+</style>
+
+<script src="https://gist.github.com/anyafp/c0a6a4d96aa05f449668c22ded394573.js"></script>
+
+When testing this code for the first time, the speed of the car was slower than usual. Because of this, I changed the Kp value to 0.05 and kept the Kd value to 0.08. This resulted in the results below:
+
+<p align="left"><img src="../../images/lab7/kf-car1.png" height="1500" width="1500"></p>
+
+Although the car reached the goal very quickly, there were some jitters at the end where the car would still try to adjust its position. When checking the last distance recorded, I noticed that this was still quite far off of the goal of 300mm.
+
+<script src="https://gist.github.com/anyafp/e98771ec2a6f7c9c14f8915c94bddf1a.js"></script>

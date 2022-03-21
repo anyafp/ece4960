@@ -89,7 +89,11 @@ Changing sig3 would put less stress on the sensors (in the case where we think t
 
 ## Kalman Filter on Robot
 
-Now all we need to do is transfer the code from python to Arduino (which is easier than it sounds..). Below is the relevant code snippets of initializing all the variables needed, implementing the filter itself, and incorporating the filter into the PID control.
+Now all we need to do is transfer the code from python to Arduino (which is easier than it sounds..). In addition to that, we needed to integrate the Kalman Filter with the system and PID control.
+
+<p align="left"><img src="../../images/lab7/system.png" height="350" width="350"></p>
+
+Below is the relevant code snippets of initializing all the variables needed, implementing the filter itself, and incorporating the filter into the PID control.
 
 <style type="text/css">
   .gist {width:750px !important;}

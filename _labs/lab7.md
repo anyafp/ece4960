@@ -6,6 +6,12 @@ weight: 6
 layout: lab
 ---
 
+<style type="text/css">
+  .gist {width:600px !important;}
+  .gist-file
+  .gist-data {max-height: 500px;max-width: 600px;}
+</style>
+
 In this lab, we implemented a Kalman Filter to combat the slow sampling rate of the sensors, as seen in Lab 6.
 
 # Lab Tasks 
@@ -61,12 +67,6 @@ The C matrix used was the one provided in lecture:
 
 Finally, we put together all the values we found in the previous section. Below is the code snippet showing a summary of the above two sections, where we obtained the d and m values, got the A, B and C matrices, and calculated the covariance matrices. We discretized the A and B matrices, and calculated the KF estimation before running it on some data I had from Lab 6.
 
-<style type="text/css">
-  .gist {width:750px !important;}
-  .gist-file
-  .gist-data {max-height: 500px;max-width: 750px;}
-</style>
-
 <script src="https://gist.github.com/anyafp/b46a0f1153e027b9fda3c32d68344e8a.js"></script>
 
 Below is our input, which is the PWM values:
@@ -95,18 +95,37 @@ Now all we need to do is transfer the code from python to Arduino (which is easi
 
 Below is the relevant code snippets of initializing all the variables needed, implementing the filter itself, and incorporating the filter into the PID control.
 
-<style type="text/css">
-  .gist {width:750px !important;}
-  .gist-file
-  .gist-data {max-height: 500px;max-width: 750px;}
-</style>
-
 <script src="https://gist.github.com/anyafp/c0a6a4d96aa05f449668c22ded394573.js"></script>
 
 When testing this code for the first time, the speed of the car was slower than usual. Because of this, I changed the Kp value to 0.05 and kept the Kd value to 0.08. This resulted in the results below:
 
 <p align="left"><img src="../../images/lab7/kf-car1.png" height="1500" width="1500"></p>
 
-Although the car reached the goal very quickly, there were some jitters at the end where the car would still try to adjust its position. When checking the last distance recorded, I noticed that this was still quite far off of the goal of 300mm.
+Although the car reached the goal very quickly, there were some jitters at the end where the car would still try to adjust its position. When checking the last distance recorded, I noticed that this was still quite far off of the goal of 300mm. 
 
 <script src="https://gist.github.com/anyafp/e98771ec2a6f7c9c14f8915c94bddf1a.js"></script>
+
+This is probably because the Kalman Filter had not matched with the sensor values just yet (as seen in the graph on the left) and was still adjusting slowly, hence the jitters at the end. To combat this, I played around with the sigma values to put less emphasis on the Kalman Filter. Below is the output of using sig1 = sig2 = 50:
+
+<p align="left"><img src="../../images/lab7/kf-car2.png" height="1500" width="1500"></p>
+
+<script src="https://gist.github.com/anyafp/c1ca591a47218a328d7912f3b1d4ff2c.js"></script>
+<br>
+It seemed like it still took quite a while to reach the goal. Since the KF was working well for the first part of the run but not the last part, I attempted to switch to the sensor values after reaching a certain distance.
+
+<script src="https://gist.github.com/anyafp/bc94e0d87be61a364ce1c50ba53493de.js"></script>
+
+With this code, I change to using the sensor values once the error reaches below -100. I ran this with the following parameters:
+
+- Kp = 0.06
+- Kd = 0.08
+- sig1 = 10
+- sig2 = 10
+- sig3 = 20
+
+<p align="left"><img src="../../images/lab7/kf2sensor1.png" height="1500" width="1500"></p>
+<p align="left"><img src="../../images/lab7/kf2sensor2.png" height="1500" width="1500"></p>
+<p align="left"><img src="../../images/lab7/kf2sensor3.png" height="1500" width="1500"></p>
+
+<p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/XprpDUoTo2k"></iframe></p>
+<p></p>

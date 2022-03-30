@@ -2,7 +2,7 @@
 title: "Lab 8: Stunts!"
 date: 2018-11-28T15:15:26+10:00
 featured: true
-weight: 5
+weight: 8
 layout: lab
 ---
 
@@ -45,13 +45,18 @@ The KF value no longer changes after reaching a certain distance since I no long
 
 For this section, I no longer needed to use sensor data to make a stunt. Instead, I could do an open loop stunt where I would hard code the control sequence in the Arduino IDE.
 
-### Stunt 1: Spin in Place
+### Stunt 1: Spin In Place
 
 I decided to start simple and try the stunt where I just spin in place.
 
 <script src="https://gist.github.com/anyafp/c743b89cae931c6e9bfc22dbab584080.js"></script>
 
-### Stunt 2: Thread the Needle
+<p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/FcGBCpbYj9w"></iframe></p>
+<p></p>
+
+### Stunt 2: Ramp Up
+
+Since spinning in place was relatively simple and was implemented successfully, I wanted to try driving the car up a ramp and making it do a flip mid air, and stop at the landing. Below is the code I used and my attempt.
 
 ## Bloopers
 

@@ -2,7 +2,7 @@
 title: "Lab 4: Characterize Your Car"
 date: 2018-11-28T15:15:26+10:00
 featured: true
-weight: 6
+weight: 4
 layout: lab
 ---
 

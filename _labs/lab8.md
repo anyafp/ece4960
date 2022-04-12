@@ -56,7 +56,18 @@ I decided to start simple and try the stunt where I just spin in place.
 
 ### Stunt 2: Ramp Up
 
-Since spinning in place was relatively simple and was implemented successfully, I wanted to try driving the car up a ramp and making it do a flip mid air, and stop at the landing. Below is the code I used and my attempt.
+Since spinning in place was relatively simple and was implemented successfully, I wanted to try driving the car up a ramp and making it flip. Below are the three tries of this stunt. They're not completely identical since it required precise placement of the car in the same location for the stunt to be exactly the same. 
+
+<script src="https://gist.github.com/anyafp/5d32c9d8e2475919f33d9578c13a920a.js"></script>
+
+The code for this stunt is relatively simple since we just want to drive the car forward and jerk it backwards to create the flip.
+
+<p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/1OnmzVhPcCU"></iframe></p>
+<p></p>
 
 ## Bloopers
 
+Not sure how my ToF sensor still works..
+
+<p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/cEcRWQi84ms"></iframe></p>
+<p></p>

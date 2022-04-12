@@ -22,6 +22,6 @@ In a previous lab, I configured PID control for the front ToF sensor. In this la
 
 <script src="https://gist.github.com/anyafp/62acd55fed8fe9ea79d44f6bf7823c7b.js"></script>
 
-I ran it once. Not so nice plot :'(
+I ran it once. Not so nice plot :(
 
 <p align="left"><img src="../../images/lab9/Figure1.png" height="650" width="650"></p>

@@ -12,7 +12,7 @@ layout: lab
   .gist-data {max-height: 500px;max-width: 700px;}
 </style>
 
-In this lab, we attemp to create a mapping of a room in the lab, and use this map in later localization and navigation tasks. In order to build the map, the robot was placed at several positions in the classroom and spun around its axis to caputre the ToF sensor readings.
+In this lab, we attempt to create a mapping of a room in the lab, and use this map in later localization and navigation tasks. In order to build the map, the robot was placed at several positions in the classroom and spun around its axis to caputre the ToF sensor readings.
 
 # Lab Tasks
 

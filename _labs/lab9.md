@@ -22,6 +22,12 @@ In a previous lab, I configured PID control for the front ToF sensor. In this la
 
 <script src="https://gist.github.com/anyafp/62acd55fed8fe9ea79d44f6bf7823c7b.js"></script>
 
-I ran it once. Not so nice plot :(
+I plotted the mappings that the robot took at each coordinate in the space.
 
-<p align="left"><img src="../../images/lab9/Figure1.png" height="650" width="650"></p>
+<p align="left"><img src="../../images/lab9/maps.png" height="1500" width="1500"></p>
+
+Once I had all the data points for each coordinate, I needed to convert them into x and y coordinates, and combine all the data plots to plot one final mapping. I wrote a python script to do this and below was the result:
+
+<p align="left"><img src="../../images/lab9/map-final.jpeg" height="800" width="800"></p>
+
+The x and y values are in mm and I drew over the data points to somewhat extrapolate the data points. 

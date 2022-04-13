@@ -24,7 +24,7 @@ bodyClass: page-home
 
 <div class="container pt-6 pb-6">
   <div class="row">
-    {% assign weighted_labs = site.labs | sort: "date" %}
+    {% assign weighted_labs = site.labs | sort: "weight" %}
     {% for lab in weighted_labs %}
     <div class="col-12 col-md-6 mb-3">
       <div class="lab lab-summary">

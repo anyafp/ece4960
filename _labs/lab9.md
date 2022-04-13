@@ -55,11 +55,11 @@ In order to make use of the simulator in the next lab, we need to manually estim
 <p align="left"><img src="../../images/lab9/map-est2.png" height="500" width="500"></p>
 
 And these are the data points I used to plot the lines. They correspond to the start and end point of each line. There are four lists to account for the box in the middle.
-
-linex_wall = [-650, 2050, 2000, 250, 250, -250, -250, -1600, -1600, -650, -650] <br>
-liney_wall = [1350, 1350, -1250, -1250, -900, -900, -1250, -1250, 75, 75, 1350] <br>
-<br>
-linex_box = [750, 1450, 1450, 750, 750] <br>
-liney_box = [550, 550, -150, -150, 550] <br>
+>
+    linex_wall = [-650, 2050, 2000, 250, 250, -250, -250, -1600, -1600, -650, -650] 
+    liney_wall = [1350, 1350, -1250, -1250, -900, -900, -1250, -1250, 75, 75, 1350] 
+>
+    linex_box = [750, 1450, 1450, 750, 750]
+    liney_box = [550, 550, -150, -150, 550]
 
 To check how accurate my data is, I also physically measured the actual distances in the map and plotted this on top of my data. [TODO]

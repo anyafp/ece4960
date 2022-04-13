@@ -2,7 +2,7 @@
 title: "Lab 10: Simulator"
 date: 2018-11-28T15:15:26+10:00
 featured: true
-weight: 20
+weight: 10
 layout: lab
 ---
 
@@ -27,8 +27,7 @@ Since we're using a new upgraded version of Python, we need to repeat the steps 
 
 __Install pip Packages__
 >
-    $ python3 -m pip install numpy pygame pyqt5 pyqtgraph pyyaml ipywidgets 
-      colorama
+    $ python3 -m pip install numpy pygame pyqt5 pyqtgraph pyyaml ipywidgets colorama
 
 __Install Box2D Package__
 >

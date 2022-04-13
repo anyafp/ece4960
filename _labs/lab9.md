@@ -42,24 +42,28 @@ After converting every single point to x and y coordinates, we can now use what 
 
 Finally, I combined all these points into one array (ensuring that each x coordinate corresponded to its respective y coordinate) and plotted the x and y arrays.
 
-I wrote a python script to do all of the above and below was the result:
+I wrote a python script to do all of the above and below was the result with x and y being in mm.
 
-<p align="left"><img src="../../images/lab9/map-2.png" height="1500" width="1500"></p>
-
-The x and y values are in mm and I drew over the data points to somewhat extrapolate the data points in the plot on the right.
+<p align="left"><img src="../../images/lab9/map-raw.png" height="500" width="500"></p>
 
 ## Convert to Line-Based Map
 
-In order to make use of the simulator in the next lab, we need to manually estimate where the actual walls and obstacles are in the map. I used the lines that I had manually drawn above to get the coordinates of these lines and plotted them on top of my data plots.
-
-<p align="left"><img src="../../images/lab9/map-est2.png" height="500" width="500"></p>
-
-And these are the data points I used to plot the lines. They correspond to the start and end point of each line. There are four lists to account for the box in the middle.
+In order to make use of the simulator in the next lab, we need to manually estimate where the actual walls and obstacles are in the map. I observed the general location of the data points to get the coordinates of these lines and plotted them on top of my data plots. Below are the data points I used to plot the lines. They correspond to the start and end point of each line. There are four lists to account for the box in the middle.
 >
-    linex_wall = [-650, 2050, 2000, 250, 250, -250, -250, -1600, -1600, -650, -650] 
-    liney_wall = [1350, 1350, -1250, -1250, -900, -900, -1250, -1250, 75, 75, 1350] 
+    linex_wall = [-650, 2050, 2050, 250, 250, -250, -250, -1610, -1610, -650, -650]
+    liney_wall = [1350, 1350, -1300, -1300, -900, -900, -1300, -1300, 75, 75, 1350]
 >
     linex_box = [750, 1450, 1450, 750, 750]
     liney_box = [550, 550, -150, -150, 550]
 
-To check how accurate my data is, I also physically measured the actual distances in the map and plotted this on top of my data. [TODO]
+<p align="left"><img src="../../images/lab9/map-est3.png" height="500" width="500"></p>
+
+To check how accurate my data is, I also physically measured the actual distances in the map and plotted this on top of my data using the values below:
+>
+    real_linex_wall = [-740, 2030, 2030, 140, 140, -100, -100, -1650, -1650, -740, -740]
+    real_liney_wall = [1400, 1400, -1370, -1370, -960, -960, -1370, -1370, 130, 130, 1400]
+>
+    real_linex_box = [810, 1450, 1450, 810, 810]
+    real_liney_box = [460, 460, -90, -90, 460]
+
+<p align="left"><img src="../../images/lab9/map-est-mes.png" height="500" width="500"></p>

@@ -6,6 +6,12 @@ weight: 3
 layout: lab
 ---
 
+<style type="text/css">
+  .gist {width:700px !important;}
+  .gist-file
+  .gist-data {max-height: 500px;max-width: 700px;}
+</style>
+
 In this lab, we equipped the robot with sensors (specifically the Time-of-Flight (ToF) and Intertial Measurement Unit (IMU) sensors). 
 
 # Prelab
@@ -72,12 +78,6 @@ I took the measurements in 2cm increments from 2cm to 30cm and repeated this two
 
 Above is the time it takes for the sensor to get the data and below is the code used to generate this:
 
-<style type="text/css">
-  .gist {width:750px !important;}
-  .gist-file
-  .gist-data {max-height: 500px;max-width: 750px;}
-</style>
-
 <script src="https://gist.github.com/anyafp/1957cb3991ce8b23fe04d27bdf5b07fd.js"></script>
 
 In order to get the range of the ToF sensor, I made the ToF face a wall and walked back as far as possible whilst still getting reasonable readings. The distance value reached about 4000mm (400m) before it started decreasing as I walked further back. This is as expected since the maximum possible range is 360cm (the reason I got 400cm was maybe because the value became less accurate nearing 400cm beyond 360cm).
@@ -94,12 +94,6 @@ In order to read from both sensors, the method I chose was to change the address
 <p align="left"><img src="../../images/lab3/img-2tofs.png" height="400" width="400"></p>
 
 And this is the Arduino code:
-
-<style type="text/css">
-  .gist {width:750px !important;}
-  .gist-file
-  .gist-data {max-height: 500px;max-width: 750px;}
-</style>
 
 <script src="https://gist.github.com/anyafp/65717e0550facb59a155ea90a9e570a4.js"></script>
 

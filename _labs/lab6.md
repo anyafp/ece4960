@@ -5,6 +5,13 @@ featured: true
 weight: 6
 layout: lab
 ---
+
+<style type="text/css">
+  .gist {width:700px !important;}
+  .gist-file
+  .gist-data {max-height: 500px;max-width: 700px;}
+</style>
+
 In this lab, we used what we learned from lecture about PID control and implemented it to our car. We first had to set up the bluetooth connection and make sure that the Artemis and laptop could communicate information smoothly so that the laptop can use the information from the sensors to make necessary adjustments, and send that information back to the Artemis and so on.
 
 # Prelab - Sending Data Over Bluetooth
@@ -20,19 +27,7 @@ In order to get the lab to run smoothly, we need to send data to our laptops fro
 
 When I'm storing data, I don't want to store too many data points unnecessarily so I chose to store readings every 0.5s. Since the rate I store the data at is slower than the sampling rate, I had two separate functions for them, `store_data()` and `sensor_data()`. Another issue that I wanted to combat is ensuring that I don't exceed the internal RAM of 384kB. After testing out how many data points I need to test Task A, I found out that an array size of 150 is sufficient. I would increment the index, and reset it to 0 if I exceed the array size. This is where the timestamps come in handy because it wouldn't matter where the data points are in the array if they correspond to their timestamp.
 
-<style type="text/css">
-  .gist {width:750px !important;}
-  .gist-file
-  .gist-data {max-height: 500px;max-width: 750px;}
-</style>
-
 <script src="https://gist.github.com/anyafp/9ae0be747ff4c55c6a6a3d5ed31cc077.js"></script>
-
-<style type="text/css">
-  .gist {width:750px !important;}
-  .gist-file
-  .gist-data {max-height: 500px;max-width: 750px;}
-</style>
 
 <script src="https://gist.github.com/anyafp/fb28dc42352e5dfc9ad7bfc2eac0f925.js"></script>
 
@@ -42,21 +37,9 @@ When I'm storing data, I don't want to store too many data points unnecessarily 
 
 For this task, we had to use PID control to ensure that the car stops 300m (30cm) away from the wall. In order to do this, I first used only the P in PID. I calculated the error based on the ToF sensor reading and the target distance, obtained the speed from this value and a Kp value, and set the motor speed based on this as shown below:
 
-<style type="text/css">
-  .gist {width:750px !important;}
-  .gist-file
-  .gist-data {max-height: 500px;max-width: 750px;}
-</style>
-
 <script src="https://gist.github.com/anyafp/c574ca392cbf173d52032e216ce01424.js"></script>
 
 I added a limiting range function to ensure that even as the speed goes beyond the maximum or below the minimum, it would still move.
-
-<style type="text/css">
-  .gist {width:750px !important;}
-  .gist-file
-  .gist-data {max-height: 500px;max-width: 750px;}
-</style>
 
 <script src="https://gist.github.com/anyafp/b6b1b1bc855544e59bfc137e753602c2.js"></script>
 
@@ -73,12 +56,6 @@ As you can see from the video, with a Kp value of 0.03, the car almost hits the 
 
 Although the graph shows that the final distance is around 300mm, I printed the last data point that the sensor read to see what the actual reading was.
 
-<style type="text/css">
-  .gist {width:750px !important;}
-  .gist-file
-  .gist-data {max-height: 500px;max-width: 750px;}
-</style>
-
 <script src="https://gist.github.com/anyafp/fab13695221d689c71922cf75eb44726.js"></script>
 
 It seems like the value was not actually 300mm although according to the conditions set, it should theoretically only stop when it reaches exactly 300mm, but this disparity between what is expected and the actual values is not shocking.
@@ -86,12 +63,6 @@ It seems like the value was not actually 300mm although according to the conditi
 ## Task A - P(I)D
 
 I added in the equation to find the derivative and add it to the speed of the motors. By adding the Kd value, when the change in the error is negative (the error is getting less), the Kd value would be negative and would subtract PWM value from the Kp to result in a lower `speed_val`. This means that the speed would slow down quicker, and can afford to start off at a higher speed.
-
-<style type="text/css">
-  .gist {width:750px !important;}
-  .gist-file
-  .gist-data {max-height: 500px;max-width: 750px;}
-</style>
 
 <script src="https://gist.github.com/anyafp/b975c26ea27371440354baedc86c5074.js"></script>
 
@@ -103,12 +74,6 @@ I tried a few Kp and Kd values and realized that, because of the improvement in 
 <p></p>
 
 As seen above, the P(ID) control takes approx. 6s to reach the goal while the P(I)D control takes  approx. 4s on average to reach the goal.
-
-<style type="text/css">
-  .gist {width:750px !important;}
-  .gist-file
-  .gist-data {max-height: 500px;max-width: 750px;}
-</style>
 
 <script src="https://gist.github.com/anyafp/6ed8c331ba14f1a880626ad0efa08090.js"></script>
 

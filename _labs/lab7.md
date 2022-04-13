@@ -7,9 +7,9 @@ layout: lab
 ---
 
 <style type="text/css">
-  .gist {width:600px !important;}
+  .gist {width:700px !important;}
   .gist-file
-  .gist-data {max-height: 500px;max-width: 600px;}
+  .gist-data {max-height: 500px;max-width: 700px;}
 </style>
 
 In this lab, we implemented a Kalman Filter to combat the slow sampling rate of the sensors, as seen in Lab 6.

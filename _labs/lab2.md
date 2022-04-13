@@ -6,6 +6,12 @@ weight: 2
 layout: lab
 ---
 
+<style type="text/css">
+  .gist {width:700px !important;}
+  .gist-file
+  .gist-data {max-height: 500px;max-width: 700px;}
+</style>
+
 In this lab, we're going to establish communication between our computer and the Artemis board through the bluetooth stack. We'll be using Python inside a Jupyter notebook on the computer end, and the Arduinno programming language on the Artemis side.
 
 # Setup
@@ -45,12 +51,6 @@ We installed __ArduinoBLE__ from the library manager in the Arduino IDE and load
 
 The `demo.ipynb` notebook is a demo file that helps us set up the bluetooth connection between the computer and the board.
 
-<style type="text/css">
-  .gist {width:750px !important;}
-  .gist-file
-  .gist-data {max-height: 500px;max-width: 750px;}
-</style>
-
 <script src="https://gist.github.com/anyafp/ba2e30e060d7ff1b6c2c3657dba16224.js"></script>
 
 
@@ -73,12 +73,6 @@ For this task, I also had to update the Arduino sketch. I referred to the `SEND_
 In the demo, we had learned how to receive a float. In this task, we were still receiving a float. The difference is that, instead of having one instance of receiving a value, we would make a global variable that would constantly be updated using the notification feature that uses the `start_notify()` and `stop_notify()` functions. Whenever this global variable was printed, it would print the most updated value that is received. No Arduino code was needed to be added/modified, but there was some Python code that we needed to add.
 
 The first step was to create the global variable that is to be updated. This was assigned a random value. The function `start_notify()` takes in two arguments: the uuid and a callback function. So the next step was to create the callback function. The callback function takes in two arguments: the uuid, which is purely for debugging purposes, i.e., to print in the callback function, and the bytearray to be converted into a float. This bytearray to be converted to a float (using the `bytearray_to_float` function) is then assigned to the global variable. Now that the callback function is complete, all we need to do is pass this function as the second argument in `start_notify()`, and the uuid (in our case, `'RX_FLOAT'`) as the first argument. After running this, I made a few cells that would print out the value of this global function. Without having to call `receive_float()`, this variable is constantly updated.
-
-<style type="text/css">
-  .gist {width:750px !important;}
-  .gist-file
-  .gist-data {max-height: 500px;max-width: 750px;}
-</style>
 
 <script src="https://gist.github.com/anyafp/461692d263f434177b5cdbf4b2100b2c.js"></script>
 

@@ -28,6 +28,6 @@ I plotted the mappings that the robot took at each coordinate in the space.
 
 Once I had all the data points for each coordinate, I needed to convert them into x and y coordinates, and combine all the data plots to plot one final mapping. I wrote a python script to do this and below was the result:
 
-<p align="left"><img src="../../images/lab9/map-2.png" height="800" width="800"></p>
+<p align="left"><img src="../../images/lab9/map-2.png" height="1500" width="1500"></p>
 
 The x and y values are in mm and I drew over the data points to somewhat extrapolate the data points in the plot on the right.

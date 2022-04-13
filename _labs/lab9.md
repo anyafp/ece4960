@@ -22,11 +22,15 @@ In a previous lab, I configured PID control for the front ToF sensor. In this la
 
 <script src="https://gist.github.com/anyafp/62acd55fed8fe9ea79d44f6bf7823c7b.js"></script>
 
+## Read Out Distances
+
 There were 5 coordinate points in the mapping that we had to map from. This is because the sensor data is more accurate when detecting objects nearby, and is noisy when detecting objects further away (especially if the rate of rotation is not slow enough) as evident in my polar plots. I did 2 runs per coordinate position to check for consistency of my data and plotted the polar plots below:
 
 <p align="left"><img src="../../images/lab9/maps.png" height="1500" width="1500"></p>
 
 My runs often did not align with each other, but once I rotated one of the run's data points (by adding or subtracting from the theta values), I got data points that matched up pretty well. However, they were not very accurate with respect to how I orientated my car initially so, to save myself some pain in the later part of this lab, I rotated both runs to match the ideal orientation by observing the car's environment and determining the corners that it should be detecting at certain angles.
+
+## Merge and Plot Readings
 
 Once I had all the data points for each coordinate, I needed to convert them into x and y coordinates, and combine all the data plots to plot one final mapping. Since the data points I had were in distance and theta, I had to use some basic math properties to convert them to x and y values.
 
@@ -43,3 +47,19 @@ I wrote a python script to do all of the above and below was the result:
 <p align="left"><img src="../../images/lab9/map-2.png" height="1500" width="1500"></p>
 
 The x and y values are in mm and I drew over the data points to somewhat extrapolate the data points in the plot on the right.
+
+## Convert to Line-Based Map
+
+In order to make use of the simulator in the next lab, we need to manually estimate where the actual walls and obstacles are in the map. I used the lines that I had manually drawn above to get the coordinates of these lines and plotted them on top of my data plots.
+
+<p align="left"><img src="../../images/lab9/map-est2.png" height="500" width="500"></p>
+
+And these are the data points I used to plot the lines. They correspond to the start and end point of each line. There are four lists to account for the box in the middle.
+
+linex_wall = [-650, 2050, 2000, 250, 250, -250, -250, -1600, -1600, -650, -650] <br>
+liney_wall = [1350, 1350, -1250, -1250, -900, -900, -1250, -1250, 75, 75, 1350] <br>
+<br>
+linex_box = [750, 1450, 1450, 750, 750] <br>
+liney_box = [550, 550, -150, -150, 550] <br>
+
+To check how accurate my data is, I also physically measured the actual distances in the map and plotted this on top of my data. [TODO]

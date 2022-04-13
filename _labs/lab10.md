@@ -150,3 +150,20 @@ __Commander Class__
 </table>
 
 ## Open Loop Control
+
+For this portion of the lab, we needed to use the simulator to execute a "square" loop in the map. I used the function ``cmdr.set_vel()`` to set the linear and angular velocity. I fixed the amount of time that the simulator should stay "moving forward" or "turning" and used trial and error to find the linear and angular velocities that would work with this amount of time. Eventually, I settled on the values below.
+
+<script src="https://gist.github.com/anyafp/0e48e87c398af8b8a7b78a2cffd07639.js"></script>
+
+<p align="left"><iframe width="720" height="265" src="https://youtube.com/embed/FHJDf628y7k"></iframe></p>
+<p></p>
+
+The plotter plots two graphs. The green plot represets the __ground truth__, which is the actual position of the robot in the simulator. The red plot represents the __odometry__ data, which is the data from onboard sensors. In this simulated case, the IMU sensor data is being mimiced. The red and green plots should theoretically be the same, but the odometry data takes into account noise so the readings are very off.
+
+When moving forward, using a linear velocity of 0.5 m/s (as seen in ``cmdr.set_vel(0.5,0)``), I set the simulator to run the car forward for 1s (as seen when I use the ``asyncio.sleep(1)``). When turning, using an angular velocity of 1.55 rad/s (as seen in ``cmdr.set_vel(0,1.55)``), I set the simulator to turn the car for 1s (as seen when I use the ``asyncio.sleep(1)``). The robot executes the same shape every time as long as I reset the robot before every run since this is open loop control and there is minimal noise.
+
+However, if I don't reset the robot and run the square loop several times, I obtain this ground truth as the 
+
+<p align="left"><img src="../../images/lab10/gt-many.png" height="500" width="500"></p>
+
+## Closed Loop Control

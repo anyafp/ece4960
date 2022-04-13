@@ -1,7 +1,7 @@
 ---
 title: Labs
 layout: labs
-intro_image: images/illustrations/car2.jpeg
+intro_image: images/illustrations/car4.png
 intro_image_absolute: false
 intro_image_hide_on_mobile: false
 ---

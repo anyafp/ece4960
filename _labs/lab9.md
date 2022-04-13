@@ -22,6 +22,9 @@ In a previous lab, I configured PID control for the front ToF sensor. In this la
 
 <script src="https://gist.github.com/anyafp/62acd55fed8fe9ea79d44f6bf7823c7b.js"></script>
 
+<p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/iDF-Nt5ftWw"></iframe></p>
+<p></p>
+
 ## Read Out Distances
 
 There were 5 coordinate points in the mapping that we had to map from. This is because the sensor data is more accurate when detecting objects nearby, and is noisy when detecting objects further away (especially if the rate of rotation is not slow enough) as evident in my polar plots. I did 2 runs per coordinate position to check for consistency of my data and plotted the polar plots below:

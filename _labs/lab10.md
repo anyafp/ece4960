@@ -108,7 +108,7 @@ However, if I don't reset the robot and run the square loop several times, I obt
 
 ## Closed Loop Control
 
-For the closed loop portion of this lab, we needed to design a controller such that the car avoids obstacles. This is relatively simple since we have the function ``get_sensor()`` that returns the front ToF sensor data of the car. I utilized this to make the car turn when the ToF sensor data is smaller than a certain value.
+For the closed loop portion of this lab, we needed to design a controller such that the car avoids obstacles. This is relatively simple since we have the function ``get_sensor()`` that returns the front ToF sensor data of the car. I utilized this to make the car turn when the ToF sensor data is smaller than a certain value (0.35m) and randomized the linear and angular velocities.
 
 <script src="https://gist.github.com/anyafp/2e5085c8f59418f153246edb8c07ef43.js"></script>
 
@@ -121,4 +121,26 @@ Since the ToF sensor data doesn't give us much information (like the angle we're
 
 __At what linear speed should the virtual robot move to minimize/prevent collisions? Can you make it go faster?__
 
-Starting with a velocity of 0.5m/s, and the robot had no trouble avoiding the obstacles (except for a special case described later).
+Starting with a velocity of 0.5m/s, and the robot had no trouble avoiding the obstacles (except for a special case described later). This speed prevented any collisions even when the car came at the wall at an angle. So I pushed the speed from 3m/s to 5m/s as seen in the video below. For most of the near collisions, when going at 3m/s, the car barely touches the wall and only collides with the wall a few times. When we get to 5m/s, the car collides with the wall most of the times. These runs were all done with a distance of 0.35m given as the limit for the ToF sensor.
+
+<p align="left"><iframe width="720" height="265" src="https://youtube.com/embed/VbiqOPX_IAE"></iframe></p>
+<p></p>
+
+__How close can the virtual robot get to an obstacle without colliding?__
+
+Fixing the linear velocity to 1m/s, I varied the distance the ToF sensor has to detect for it to turn. Since I started with 0.35m, i decremented it by 10cm. With a distance of 0.35m, the car does not collide with obstacles 90% of the time while it collides with obstacles 50% of the time when the distance is set to 0.25m. When I set it to 0.15m, it hits obstacles most of the time. However, these collisions were determined visually which may be inaccurate. Also, the linear velocity plays a big role as to how close the car can get.
+
+<p align="left"><iframe width="720" height="265" src="https://youtube.com/embed/GYfVlv3BwUc"></iframe></p>
+<p></p>
+
+__Does your obstacle avoidance code always work? If not, what can you do to minimize crashes or (may be) prevent them completely?__
+
+No it does not. There are two major cases in which the obstacle avoidance does not work. One is when the car comes at an angle, and the corner of the car collides with the wall.
+
+<p align="left"><img src="../../images/lab10/prob1.jpeg" height="300" width="300"></p>
+
+The other major case is similar, but the corner of the car collides with the obstacle instead of the wall.
+
+<p align="left"><img src="../../images/lab10/prob2.jpeg" height="300" width="300"></p>
+
+To solve these problems, we could have two ToF sensors attached to the car at the front, one that's on the far left and one that's on the far right to account for the front corners of the car.

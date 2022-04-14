@@ -117,4 +117,8 @@ For the closed loop portion of this lab, we needed to design a controller such t
 
 __By how much should the virtual robot turn when it is close to an obstacle?__
 
-Since the ToF sensor data doesn't give us much information (like the angle we're approaching the obstacle at) other than the raw distance to the obstacle, we are not able to give a good value for the car to rotate. Hence, I just gave a random value for the angular velocity ranging from 1 rad/s to 3 rad/s and the car would turn for a duration of 1s every time. I also randomized the linear velocity between 0.5 m/s and 2 m/s when the car moves forward.
+Since the ToF sensor data doesn't give us much information (like the angle we're approaching the obstacle at) other than the raw distance to the obstacle, we are not able to give a good value for the car to rotate. Hence, I just gave a random value for the angular velocity ranging from 1 rad/s to 3 rad/s and the car would turn for a duration of 1s every time as in the video above.
+
+__At what linear speed should the virtual robot move to minimize/prevent collisions? Can you make it go faster?__
+
+Starting with a velocity of 0.5m/s, and the robot had no trouble avoiding the obstacles (except for a special case described later).

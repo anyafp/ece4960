@@ -18,12 +18,16 @@ In this lab, we attempt to create a mapping of a room in the lab, and use this m
 
 ## PID Control
 
-In a previous lab, I configured PID control for the front ToF sensor. In this lab, we need to use PID control for the IMU sensor readings instead. I decided to use the method that controlled angular speed, so that the car would turn at a relatively constant angluar speed. With the PID control, the baseline PWM value would be 90, and it would be adjusted based on the error from the angular velocity of 15 rad/s. If the car was rotating any slower than 15 rad/s, the error would be negative and the PWM value would increase above 90. If the car rotates faster than 15 rad/s, the error would be positive and this value (multiplied by the Kp value) would be subtracted from the PWM value of 90.
+In a previous lab, I configured PID control for the front ToF sensor. In this lab, we need to use PID control for the IMU sensor readings instead. I decided to use the method that controlled angular speed, so that the car would turn at a relatively constant angluar speed. With the PID control, the baseline PWM value would be 90, and it would be adjusted based on the error from the angular velocity of 15 rad/s. If the car was rotating any slower than 15º/s, the error would be negative and the PWM value would increase above 90. If the car rotates faster than 15 rad/s, the error would be positive and this value (multiplied by the Kp value) would be subtracted from the PWM value of 90.
 
 <script src="https://gist.github.com/anyafp/62acd55fed8fe9ea79d44f6bf7823c7b.js"></script>
 
 <p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/iDF-Nt5ftWw"></iframe></p>
 <p></p>
+
+<p align="left"><img src="../../images/lab9/data.png" height="1500" width="1500"></p>
+
+Looking at my sensor values and measurements for one of my runs, the PWM values show that the P(ID) controller works since I set the system such that it would aim to achieve a PWM value of 90 when there is 0 error. However, for the angular velocity, I set it to 15º/s, but the measured angular velocity does not oscillate around 15º/s until around the 17th second. I'm not entirely sure why this occurs because it would make sense for the angular velocity to be around 15 such that the error is 0, and that's why the PWM values could be maintained around 90. This could instead be the way I chose my Kp value and how it might have been too small and insignificant.
 
 ## Read Out Distances
 

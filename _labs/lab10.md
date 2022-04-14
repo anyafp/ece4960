@@ -85,69 +85,9 @@ Plotter:
 * Use your mouse to zoom in and out of the plot.
 * Press the "A" button (bottom-left to the plotting box and above "Plotted Points") to auto-fit the plot to your window.
 
-<br>
-
 __Commander Class__
 
-<table align="left">
-    <tr>
-        <th style="text-align: left; font-size: medium">Member Functions</th>
-        <th style="text-align: left; font-size: medium">Description</th>
-    </tr>
-    <tr>
-        <th style="text-align: left"><span style="font-family:monospace">Utility Functions</span></th>
-    </tr>
-    <tr>
-        <th style="text-align: left"><span style="color:rgb(201,152,4);font-family:monospace">sim_is_running()</span></th>
-        <th style="text-align: left"><span style="font-weight: normal">Get the run status of the simulator.</span></th>
-    </tr>
-    <tr>
-        <th style="text-align: left"><span style="color:rgb(201,152,4);font-family:monospace">plotter_is_running()</span></th>
-        <th style="text-align: left"><span style="font-weight: normal">Get the run status of the plotter.</span></th>
-    </tr>
-    <tr>
-        <th style="text-align: left"><span style="font-family:monospace">Plotter Functions</span></th>
-    </tr>
-    <tr>
-        <th style="text-align: left"><span style="color:rgb(201,152,4);font-family:monospace">plot_odom(x,y)</span></th>
-        <th style="text-align: left"><span style="font-weight: normal">Plot a point (x,y) in the plotter in red. Units are (meters, meters).</span></th>
-    </tr>
-    <tr>
-        <th style="text-align: left"><span style="color:rgb(201,152,4);font-family:monospace">plot_gt(x,y)</span></th>
-        <th style="text-align: left"><span style="font-weight: normal">Plot a point (x,y) in the plotter in green. Units are (meters, meters).</span></th>
-    </tr>
-    <tr>
-        <th style="text-align: left"><span style="color:rgb(201,152,4);font-family:monospace">plot_bel(x,y)</span></th>
-        <th style="text-align: left"><span style="font-weight: normal">Plot a point (x,y) in the plotter in blue. Units are (meters, meters).</span></th>
-    </tr>
-    <tr>
-        <th style="text-align: left"><span style="color:rgb(201,152,4);font-family:monospace">plot_map()</span></th>
-        <th style="text-align: left"><span style="font-weight: normal">Plot the map based on the map lines in <em>world.yaml</em>.</span></th>
-    </tr>
-    <tr>
-        <th style="text-align: left"><span style="color:rgb(201,152,4);font-family:monospace">reset_plotter()</span></th>
-        <th style="text-align: left"><span style="font-weight: normal">Reset the plots in the plotter.</span></th>
-    </tr>
-    <tr>
-        <th style="text-align: left"><span style="font-family:monospace">Simulator Functions</span></th>
-    </tr>
-    <tr>
-        <th style="text-align: left"><span style="color:rgb(201,152,4);font-family:monospace">set_vel(linear_vel, angular_vel)</span></th>
-        <th style="text-align: left"><span style="font-weight: normal">Set the linear velocity (m/s) and angular velocity (rad/s) of the virtual robot.</span></th>
-    </tr>
-    <tr>
-        <th style="text-align: left"><span style="color:rgb(201,152,4);font-family:monospace">get_pose()</span></th>
-        <th style="text-align: left"><span style="font-weight: normal">Get the odometry and ground truth poses of the virtual robot as two numpy arrays. The units of each pose are (meters, meters, radians)</span></th>
-    </tr>
-    <tr>
-        <th style="text-align: left"><span style="color:rgb(201,152,4);font-family:monospace">get_sensor()</span></th>
-        <th style="text-align: left"><span style="font-weight: normal">Get the ToF sensor data (in meters) of the virtual robot as a numpy column array.</span></th>
-    </tr>
-    <tr>
-        <th style="text-align: left"><span style="color:rgb(201,152,4);font-family:monospace">reset_sim()</span></th>
-        <th style="text-align: left"><span style="font-weight: normal">Reset the virtual robot to its initial pose.</span></th>
-    </tr>
-</table>
+<p align="left"><img src="../../images/lab10/cmdr-func.png" height="`1500`" width="1500"></p>
 
 ## Open Loop Control
 
@@ -158,12 +98,23 @@ For this portion of the lab, we needed to use the simulator to execute a "square
 <p align="left"><iframe width="720" height="265" src="https://youtube.com/embed/FHJDf628y7k"></iframe></p>
 <p></p>
 
-The plotter plots two graphs. The green plot represets the __ground truth__, which is the actual position of the robot in the simulator. The red plot represents the __odometry__ data, which is the data from onboard sensors. In this simulated case, the IMU sensor data is being mimiced. The red and green plots should theoretically be the same, but the odometry data takes into account noise so the readings are very off.
+The plotter plots two graphs. The green plot represets the __ground truth__, which is the actual position of the robot in the simulator. The red plot represents the __odometry__ data, which is the data from onboard sensors. In this simulated case, the IMU sensor data is being mimiced. The red and green plots should theoretically be the same, but the odometry data takes into account noise and other external factors, which explains why the readings are very off.
 
 When moving forward, using a linear velocity of 0.5 m/s (as seen in ``cmdr.set_vel(0.5,0)``), I set the simulator to run the car forward for 1s (as seen when I use the ``asyncio.sleep(1)``). When turning, using an angular velocity of 1.55 rad/s (as seen in ``cmdr.set_vel(0,1.55)``), I set the simulator to turn the car for 1s (as seen when I use the ``asyncio.sleep(1)``). The robot executes the same shape every time as long as I reset the robot before every run since this is open loop control and there is minimal noise.
 
-However, if I don't reset the robot and run the square loop several times, I obtain this ground truth as the 
+However, if I don't reset the robot and run the square loop several times, I obtain this ground truth because my square loop is not an exact square.
 
 <p align="left"><img src="../../images/lab10/gt-many.png" height="500" width="500"></p>
 
 ## Closed Loop Control
+
+For the closed loop portion of this lab, we needed to design a controller such that the car avoids obstacles. This is relatively simple since we have the function ``get_sensor()`` that returns the front ToF sensor data of the car. I utilized this to make the car turn when the ToF sensor data is smaller than a certain value.
+
+<script src="https://gist.github.com/anyafp/2e5085c8f59418f153246edb8c07ef43.js"></script>
+
+<p align="left"><iframe width="720" height="265" src="https://youtube.com/embed/KQxTn15kqsA"></iframe></p>
+<p></p>
+
+__By how much should the virtual robot turn when it is close to an obstacle?__
+
+Since the ToF sensor data doesn't give us much information (like the angle we're approaching the obstacle at) other than the raw distance to the obstacle, we are not able to give a good value for the car to rotate. Hence, I just gave a random value for the angular velocity ranging from 1 rad/s to 3 rad/s and the car would turn for a duration of 1s every time. I also randomized the linear velocity between 0.5 m/s and 2 m/s when the car moves forward.

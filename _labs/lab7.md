@@ -37,7 +37,7 @@ An issue I ran into was that I couldn't gather very accurate distance data when 
 <p align="left"><img src="../../images/lab7/d-unstable.png" height="1000" width="1000"></p>
 
 The first set of graphs show that the steady state velocity is 2000mm/s, which the second set of graphs almost comes close to. Hence we know that <img src="https://render.githubusercontent.com/render/math?math={\dot{x}} = 2000\mms^{-1}">. Since we take <img src="https://render.githubusercontent.com/render/math?math=u"> to be 1, we have:
-<img src="https://render.githubusercontent.com/render/math?math=d = drag = \frac{u}{\dot{x}} = \frac{1}{2000\mms^{-1}} = 0.0005m^{-1}s">
+<img src="https://render.githubusercontent.com/render/math?math=d = drag = \frac{u}{\dot{x}} = \frac{1}{2000\mms^{-1}} = 0.0005">
 
 As for the 90% rise time, 90% of 2000mm/s is 1800mm/s so the 90% rise time is approximately 2.6s.
 
@@ -46,7 +46,7 @@ As for the 90% rise time, 90% of 2000mm/s is 1800mm/s so the 90% rise time is ap
 Thus <img src="https://render.githubusercontent.com/render/math?math=m = mass = \frac{-dt_{0.9}}{ln(1-0.9)} = \frac{-0.0005(2.6)}{ln(0.1)} = 5.64 \times 10^{-4}">
 
 We now have our A and B matrices as shown below:
-<p align="left"><img src="../../images/lab7/matrices.jpeg" height="350" width="350"></p>
+<p align="left"><img src="../../images/lab7/abmat.png" height="350" width="350"></p>
 
 ## Kalman Filter Setup
 

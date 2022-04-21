@@ -42,8 +42,8 @@ To understand this algorithm, we can go line by line and define all the paramete
 
 __Inputs__
 
-* ``bel(x_prev)``: This is the previous belief of the robot, where bel is a 3D matrix of probabilities that the robot would be located at each state.
-* ``u(x_cur)``: This is the control input that has parameters delta_rot1, delta_trans, and delta_rot2 (explained in the ``compute_control`` function). This represents the control inputs that result in the position of the robot to change from the x_prev to x_cur.
+* ``bel(prev_pose)``: This is the previous belief of the robot, where bel is a 3D matrix of probabilities that the robot would be located at each state.
+* ``u``: This is the control input that has parameters delta_rot1, delta_trans, and delta_rot2 (explained in the ``compute_control`` function). This represents the control inputs that result in the position of the robot to change from the x_prev to x_cur.
 * ``z``: The actual current sensor readings. This is in the form of 18 readings that are taken as the robot rotates 360º and takes readings every 20º increments. This is supposed to simulate ToF sensors that are located all around the robot and can take readings at different angles.
 
 __For Loop__
@@ -52,17 +52,17 @@ __For Loop__
 
 __Prediction Step__
 
-* ``bel_bar(x_cur)``: This is the prior belief of the robot to be updated (I like to think of it as the intermediate belief after the prediction step but before the update step).
-* ``p( x_cur | u, x_prev )``: This is the probability that you end up in a current position given a control input and a previous position.
-* ``bel(x_prev)``: This is the previous belief of the robot.
+* ``bel_bar(cur_pose)``: This is the prior belief of the robot to be updated (I like to think of it as the intermediate belief after the prediction step but before the update step).
+* ``p(cur_pose | u, prev_pose)``: This is the probability that you end up in a current position given a control input and a previous position.
+* ``bel(prev_pose)``: This is the previous belief of the robot.
 * Summation: This is the summation over all possible x_prev, which is basically all possible positions of the robot in the map.
 
 __Update Step__
 
-* ``bel(x_cur)``: This is the belief to be updated for this state (and to be used as ``bel(x_prev)`` in the next state).
+* ``bel(cur_pose)``: This is the belief to be updated for this state (and to be used as ``bel(prev_pose)`` in the next state).
 * ``n``: This is the symbol for normalization (basically saying we need to normalize the belief so they all add up to 1).
-* ``p( z_cur | x_cur )``: This is the probability that the current sensor readings at the current pose (18 readings taken for 360º) are correct given that the robot is at a particular position.
-* ``bel_bar(x_cur)``: This is the result from the prediction step.
+* ``p(z | cur_pose)``: This is the probability that the current sensor readings at the current pose (18 readings taken for 360º) are correct given that the robot is at a particular position.
+* ``bel_bar(cur_pose)``: This is the result from the prediction step.
 
 ## Bayes Filter Algorithm (Code)
 
@@ -70,10 +70,44 @@ Now that we kind of understand the actual Bayes filter algorithm, we need to imp
 
 ### Compute Control
 
-Compute control is a helper function that outputs u based on a current and previous position. Using the equations we went over in lecture, we can easily compute the delta_rot1, delta_trans, and delta_rot2 that represents the control.
+Compute control is a helper function that outputs u based on a current and previous position. Using the equations we went over in lecture, we can easily compute the ``delta_rot1``, ``delta_trans``, and ``delta_rot2`` that represents the control.
 
 <p align="left"><img src="../../images/lab11/rot.jpeg" height="300" width="300"></p>
 
-<p align="left"><img src="../../images/lab11/compute-control.png" height="400" width="400"></p>
+<p align="left"><img src="../../images/lab11/compute-control.png" height="300" width="300"></p>
 
-<script src="https://gist.github.com/anyafp/83e2578cab8eb2a1a4ce51283aa5c45a.js"></script>
+< python script >
+
+### Odometry Motion Model (Transition Probability/Action Model)
+
+<p align="left"><img src="../../images/lab11/action-model.png" height="130" width="130"></p>
+
+This is the probability that you end up in a current position given a control input and a previous position. It takes three inputs: ``cur_pose, prev_pose, u``. The ``u`` that is inputted is the actual control input based on the odometry sensor readings. The ``cur_pose`` and ``prev_pose`` are used to compute a new ``u`` that is a control input for some set of ``cur_pose`` and ``prev_pose``, calling this ``u_prop`` for u_proposed.
+
+In order to compute this probability, as with every other probability we compute, we'll be using the gaussian function. The gaussian function takes in a sigma which determins the spread of the probability distribution curve, a mu, which determines the mean of the curve, and x, the input that results in that probability.
+
+<p align="left"><img src="../../images/lab11/gaus.jpeg" height="400" width="400"></p>
+
+The sigma for each type of value is given to us in the BaseLocalization class as a member variable. In order to get the probability, we need to get the individual probabilities for the ``delta_rot1``, ``delta_trans``, and ``delta_rot2`` elements of the control variables and multiply them together.
+
+< python script >
+
+### Prediction Step
+
+<p align="left"><img src="../../images/lab11/prediction.png" height="365" width="365"></p>
+
+< python script >
+
+### Sensor Model
+
+< python script >
+
+### Update Step
+
+< python script >
+
+## Video Demos
+
+### Odometry, Ground Truth, Belief
+
+### Odometry, Ground Truth, Belief, Bel Bar

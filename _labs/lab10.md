@@ -112,7 +112,7 @@ For the closed loop portion of this lab, we needed to design a controller such t
 
 <script src="https://gist.github.com/anyafp/2e5085c8f59418f153246edb8c07ef43.js"></script>
 
-<p align="left"><iframe width="720" height="265" src="https://youtube.com/embed/KQxTn15kqsA"></iframe></p>
+<p align="left"><iframe width="720" height="260" src="https://youtube.com/embed/KQxTn15kqsA"></iframe></p>
 <p></p>
 
 __By how much should the virtual robot turn when it is close to an obstacle?__
@@ -123,14 +123,14 @@ __At what linear speed should the virtual robot move to minimize/prevent collisi
 
 Starting with a velocity of 0.5m/s, and the robot had no trouble avoiding the obstacles (except for a special case described later). This speed prevented any collisions even when the car came at the wall at an angle. So I pushed the speed from 3m/s to 5m/s as seen in the video below. For most of the near collisions, when going at 3m/s, the car barely touches the wall and only collides with the wall a few times. When we get to 5m/s, the car collides with the wall most of the times. These runs were all done with a distance of 0.35m given as the limit for the ToF sensor.
 
-<p align="left"><iframe width="720" height="265" src="https://youtube.com/embed/VbiqOPX_IAE"></iframe></p>
+<p align="left"><iframe width="720" height="260" src="https://youtube.com/embed/VbiqOPX_IAE"></iframe></p>
 <p></p>
 
 __How close can the virtual robot get to an obstacle without colliding?__
 
 Fixing the linear velocity to 1m/s, I varied the distance the ToF sensor has to detect for it to turn. Since I started with 0.35m, i decremented it by 10cm. With a distance of 0.35m, the car does not collide with obstacles 90% of the time while it collides with obstacles 50% of the time when the distance is set to 0.25m. When I set it to 0.15m, it hits obstacles most of the time. However, these collisions were determined visually which may be inaccurate. Also, the linear velocity plays a big role as to how close the car can get.
 
-<p align="left"><iframe width="720" height="265" src="https://youtube.com/embed/GYfVlv3BwUc"></iframe></p>
+<p align="left"><iframe width="720" height="260" src="https://youtube.com/embed/GYfVlv3BwUc"></iframe></p>
 <p></p>
 
 __Does your obstacle avoidance code always work? If not, what can you do to minimize crashes or (may be) prevent them completely?__

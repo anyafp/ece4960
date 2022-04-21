@@ -110,10 +110,10 @@ The sigma for each type of value is given to us in the BaseLocalization class as
 
 ### Odometry, Ground Truth, Belief
 
-<p align="left"><iframe width="720" height="265" src="https://youtube.com/embed/-gU4H-rbjQE"></iframe></p>
+<p align="left"><iframe width="720" height="260" src="https://youtube.com/embed/-gU4H-rbjQE"></iframe></p>
 <p></p>
 
 ### Odometry, Ground Truth, Belief, Bel Bar
 
-<p align="left"><iframe width="720" height="265" src="https://youtube.com/embed/-U1yAXGzZj8"></iframe></p>
+<p align="left"><iframe width="720" height="260" src="https://youtube.com/embed/-U1yAXGzZj8"></iframe></p>
 <p></p>

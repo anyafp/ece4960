@@ -46,13 +46,13 @@ As for the 90% rise time, 90% of 2000mm/s is 1800mm/s so the 90% rise time is ap
 Thus <img src="https://render.githubusercontent.com/render/math?math=m = mass = \frac{-dt_{0.9}}{ln(1-0.9)} = \frac{-0.0005(2.6)}{ln(0.1)} = 5.64 \times 10^{-4}">
 
 We now have our A and B matrices as shown below:
-<p align="left"><img src="../../images/lab7/abmat.png" height="350" width="350"></p>
+<p align="left"><img src="../../images/lab7/abmat.png" height="220" width="220"></p>
 
 ## Kalman Filter Setup
 
 In this section, we needed to specify our process noise and sensor noise covariance matrices. We need three covariance values: two for the process noise, and one for the sensor noise (or measurement noise) as seen below:
 
-<p align="left"><img src="../../images/lab7/covar.jpeg" height="350" width="350"></p>
+<p align="left"><img src="../../images/lab7/noise.png" height="270" width="270"></p>
 
 To start off the lab, I used the values below as ballpark values to adjust later. It is important to note that these are optimistic values as the covariances represent the trust in the model.
 
@@ -60,7 +60,7 @@ To start off the lab, I used the values below as ballpark values to adjust later
 
 The C matrix used was the one provided in lecture:
 
-<p align="left"><img src="../../images/lab7/cmat.jpeg" height="150" width="150"></p>
+<p align="left"><img src="../../images/lab7/cmat-new.png" height="120" width="120"></p>
 
 
 ## Kalman Filter (Sanity Check)

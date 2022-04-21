@@ -76,9 +76,9 @@ Compute control is a helper function that outputs u based on a current and previ
 
 <p align="left"><img src="../../images/lab11/compute-control.png" height="300" width="300"></p>
 
-< python script >
+< compute control python script >
 
-### Odometry Motion Model (Transition Probability/Action Model)
+### Odometry Motion Model
 
 <p align="left"><img src="../../images/lab11/action-model.png" height="130" width="130"></p>
 
@@ -90,30 +90,36 @@ In order to compute this probability, as with every other probability we compute
 
 The sigma for each type of value is given to us in the BaseLocalization class as a member variable. In order to get the probability, we need to get the individual probabilities for the ``delta_rot1``, ``delta_trans``, and ``delta_rot2`` elements of the control variables and multiply them together.
 
-< python script >
+< motion model python script >
 
 ### Prediction Step
 
 <p align="left"><img src="../../images/lab11/prediction.png" height="365" width="365"></p>
 
-< python script >
+The prediction step takes in 2 inputs: ``cur_odom`` and ``prev_odom``. These are the actual current and previous positions of the robot from the sensors (which is close enough) to calculate the input ``u`` (the actual control input).
+
+< prediction step python script >
 
 ### Sensor Model
 
-< python script >
+< sensor model python script >
 
 ### Update Step
 
-< python script >
+< update step python script >
+
+## Final Trajectory
+
+<p align="left"><img src="../../images/lab11/traj.png" height="700" width="700"></p>
 
 ## Video Demos
 
 ### Odometry, Ground Truth, Belief
 
-<p align="left"><iframe width="720" height="260" src="https://youtube.com/embed/-gU4H-rbjQE"></iframe></p>
+<p align="left"><iframe width="720" height="260" src="https://youtube.com/embed/x1aLu3PYMFY"></iframe></p>
 <p></p>
 
 ### Odometry, Ground Truth, Belief, Bel Bar
 
-<p align="left"><iframe width="720" height="260" src="https://youtube.com/embed/-U1yAXGzZj8"></iframe></p>
+<p align="left"><iframe width="720" height="260" src="https://youtube.com/embed/i06vWHfzrzI"></iframe></p>
 <p></p>

@@ -130,7 +130,7 @@ Again, since this is a probability distribution, we need to normalize ``loc.bel`
 
 <script src="https://gist.github.com/anyafp/8665460e18142a4ca85195bd5f4ed0f3.js"></script>
 
-## Final Trajectory <span>&#9786;</span>
+## Final Trajectory
 
 To see how well our Bayes filter algorithm works, we ran our robot through a preplanned trajectory and plotted three kinds of values along the path: the odometry (sensor) values, the ground truth, and our belief. The odometry values are meant to include loads of noise, hence it is way off from the ground truth. If our Bayes filter works, the belief data points should be near to our ground truth data points.
 

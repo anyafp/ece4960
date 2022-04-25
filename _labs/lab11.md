@@ -153,3 +153,9 @@ In this video, the 2D ``loc.bel_bar`` data grid that is shown on the plotter. It
 
 <p align="left"><iframe width="720" height="260" src="https://youtube.com/embed/i06vWHfzrzI"></iframe></p>
 <p></p>
+
+# Acknowledgements
+
+Big thanks to all of the course staff for explaining Bayes Filter, and Vivek for spotting the mistake I made where I forgot to change my angle from radians to degrees :'( Also massive thank you to [Jack](https://jackdefay.github.io/ECE4960/){:target="_blank"} for explaining compute control, the motion model, and a bunch of other concepts.
+
+

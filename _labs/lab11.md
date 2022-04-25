@@ -78,7 +78,7 @@ Compute control is a helper function that outputs u based on a current and previ
 
 It is important to note that the ``numpy.arctan2()`` function returns the value in __radians__, so I had to change that to degrees (which took a few hours to debug <span>&#9785;</span>).
 
-< compute control python script >
+<script src="https://gist.github.com/anyafp/83e2578cab8eb2a1a4ce51283aa5c45a.js"></script>
 
 ### Odometry Motion Model
 
@@ -92,7 +92,7 @@ In order to compute this probability, as with every other probability we compute
 
 The sigma for each type of value is given to us in the BaseLocalization class as a member variable. In order to get the probability, we need to get the individual probabilities for the ``delta_rot1``, ``delta_trans``, and ``delta_rot2`` elements of the control variables and multiply them together.
 
-< motion model python script >
+<script src="https://gist.github.com/anyafp/aabeda465f69c8130f5e201110667821.js"></script>
 
 ### Prediction Step
 
@@ -106,7 +106,7 @@ Having 6 nested for loops make this step *very very* computationally expensive. 
 
 To end off the code, it's great practice to normalize ``loc.bel_bar`` since it is a probability distribution and should add up to 1.
 
-< prediction step python script >
+<script src="https://gist.github.com/anyafp/8ebc4392308b3022c63fc438c4eff61c.js"></script>
 
 ### Sensor Model
 
@@ -118,7 +118,7 @@ The sensor model function takes in a parameter obs, which is a 1D 18 element arr
 
 Since the function outputs a 1D array of 18 elements containing the probability of each "view", I made a for loop to calculate the probability for each of the 18 values and appended them to an array to be returned.
 
-< sensor model python script >
+<script src="https://gist.github.com/anyafp/566bd93dadeb73cac6e30c8d314c514a.js"></script>
 
 ### Update Step
 
@@ -128,7 +128,7 @@ Now it's finally time to go to the update step. To capture the most outer for lo
 
 Again, since this is a probability distribution, we need to normalize ``loc.bel`` since all the values need to add up to 1.
 
-< update step python script >
+<script src="https://gist.github.com/anyafp/8665460e18142a4ca85195bd5f4ed0f3.js"></script>
 
 ## Final Trajectory <span>&#9786;</span>
 

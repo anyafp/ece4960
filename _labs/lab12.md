@@ -65,6 +65,8 @@ For this coordinate, the belief is one (diagonal) grid away.
 
 For this coordinate, the belief is one grid away. 
 
+### Discussion
+
 I don't think that the continuous rotation of my robot caused the inaccurate belief since the other two beliefs were pretty accurate.
 
 One reason why these two coordinated may have been less successful with their localization may be because (0,3) and (5,3) were the coordinates that I localized first. This may have affected the rotation of the robot when it gathered the sensor readings as the wheels may not have caught as much dust (and hence had more friction) which made the rotation less smooth and hence drifted more, making the robot believe it was at the other grid location and not the actual one.

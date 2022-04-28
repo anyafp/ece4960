@@ -65,8 +65,20 @@ For this coordinate, the belief is one (diagonal) grid away.
 
 For this coordinate, the belief is one grid away. 
 
+I don't think that the continuous rotation of my robot caused the inaccurate belief since the other two beliefs were pretty accurate.
+
 One reason why these two coordinated may have been less successful with their localization may be because (0,3) and (5,3) were the coordinates that I localized first. This may have affected the rotation of the robot when it gathered the sensor readings as the wheels may not have caught as much dust (and hence had more friction) which made the rotation less smooth and hence drifted more, making the robot believe it was at the other grid location and not the actual one.
+
+A better reason (that Kirstin mentioned when I asked her about it) that made more sense was that the not so good readings were at positions where the surroundings were more symmetrical. I only annotated the map grid lines that were nearer to the robot as that mattered more since the readings further away were noisier and not as sharp (not as concentrated).
+
+The good beliefs were at positions were there was not as much symmetry with the near map grid lines, and had more distinct features that would be lost if the robot were to be positioned slightly off from the true position. For example, for coordinates (-3,-2) on the left, if the robot were positioned more to the right in the map, it would not detect the top wall at 90º. If it were positioned lower in the map, it would detect the box at 0º when it's not supposed to. As another example, for coordinates (5,-3) on the right, if the robot were positioned more to the left of the map, it would detect the box at the top at 90º. If it were positioned higher up in the map, it would not detect the box on the left at 180º.
+
+<p align="left"><img src="../../images/lab12/good-ano.png" height="1500" width="1500"></p>
+
+The not so good beliefs, on the other hand, they had symmetrical (near) surroundings. This encourages worse belief because there aren't as many distinct landmarks that would increase the belief of being at a certain spot. For the (5,3) position on the right, both the belief and ground truth are approximately the same distance from the line of symmetry. As for the (0,3) position, although the ground truth is on the line of symmetry and the belief is further away from this, the annotated lines are all still detected at both of these positions at angles that are not too far off.
+
+<p align="left"><img src="../../images/lab12/bad-ano.png" height="1500" width="1500"></p>
 
 # Acknowledgments
 
-Big thanks (as always) to the course staff for explaining how Lab 12 works, and Vivek for giving us the model code for the Bayes filter.
+Big thanks (as always) to the course staff for explaining how Lab 12 works, Vivek for giving us the model code for the Bayes filter, and Kirsten for explaining the symmetrical mapping reasoning for why some of my beliefs were not so good.

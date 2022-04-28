@@ -77,7 +77,7 @@ The good beliefs were at positions were there was not as much symmetry with the 
 
 <p align="left"><img src="../../images/lab12/good-ano.png" height="1500" width="1500"></p>
 
-The not so good beliefs, on the other hand, they had symmetrical (near) surroundings. This encourages worse belief because there aren't as many distinct landmarks that would increase the belief of being at a certain spot. For the (5,3) position on the right, both the belief and ground truth are approximately the same distance from the line of symmetry. As for the (0,3) position, although the ground truth is on the line of symmetry and the belief is further away from this, the annotated lines are all still detected at both of these positions at angles that are not too far off.
+The not so good beliefs, on the other hand, had symmetrical (near) surroundings. This encourages worse belief because there aren't as many distinct landmarks that would increase the belief of being at a certain spot. For the (5,3) position on the right, both the belief and ground truth are approximately the same distance from the line of symmetry. As for the (0,3) position, although the ground truth is on the line of symmetry and the belief is further away from this, the annotated lines are all still detected at both of these positions at angles that are not too far off.
 
 <p align="left"><img src="../../images/lab12/bad-ano.png" height="1500" width="1500"></p>
 

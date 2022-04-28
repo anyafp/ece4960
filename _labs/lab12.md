@@ -47,7 +47,7 @@ I had 2 good belief points which were at (-3,-2) and (5,-3).
 
 <p align="left"><img src="../../images/lab12/bel-good.png" height="1500" width="1500"></p>
 
-I manually plotted the ground truth of (-3,-2) and (5,-3) but in meters, and this is not seen in the figures because they are plotted right under the belief data point.
+I manually plotted the ground truth of (-3,-2) and (5,-3) but in meters, and this is not seen in the figures because they are plotted right under the belief data points.
 
 ### Not So Good Beliefs
 

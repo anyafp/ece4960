@@ -32,23 +32,23 @@ Below is a simple overview of how the robot is going to hit the waypoints:
 
 1. The robot has a target state it wants to achieve.
 2. It performs localization to find out its current belief state.
-3. Depending on its current belief state, it will execute some actions in order to try to get to the target state. This repeats until the robot reaches the target state (or somewhere near there).
+3. Depending on its current belief state, it will execute some actions in order to try to get to the target state. This repeats until the robot reaches the target state (or somewhere near there). The action will be determined by the 
 4. Once it reaches the target state, the next waypoint becomes the robot's new target state.
 
 ## Target States
 
 Since the waypoints are only the physical coordinates of the robot, I wanted to find the actual state that it would be in. Since the state also includes the angle of the robot, I set the target angle to be the one that faces the next waypoint.
 
-| Waypoint (ft) | Waypoint (m) | Angle (º) | State |
-| -------- | ----- | ------- | 
-| (-4, -3) | (-1.2192, -0.9144) | 45º | 
-| (-2, -1) | (-0.6096, -0.3048) |  0º |
-| ( 1, -1) | ( 0.3048, -0.3048) | 300º |
-| ( 2, -3) | ( 0.3048, -0.9144) | 0º |
-| ( 5, -3) | (  1.524, -0.9144) | 90º |
-| ( 5, -2) | (  1.524, -0.6096) | 90º |
-| ( 5,  3) | (  1.524,  0.9144) | 180º |
-| ( 0,  3) | (      0,  0.9144) | 270º |
-| ( 0,  0) | (      0,       0) | anything |
+| Waypoint (ft) | Waypoint (m) | Angle (º) | Actual State | Rounded State |
+| -------- | ----- | ------- | -------- | -------- |
+| (-4, -3) | (-1.2192, -0.9144) | 45º | (1.5, 1.5, 2.5) | (2, 2, 3) |
+| (-2, -1) | (-0.6096, -0.3048) |  0º | (3.5, 3.5, 0) | (4, 4, 0) |
+| (1, -1) | (0.3048, -0.3048) | 300º | (4.5, 3.5, 16.667) | (5, 4, 17) |
+| (2, -3) | (0.3048, -0.9144) | 0º | (4.5, 1.5, 0) | (5, 2, 0) |
+| (5, -3) | (1.524, -0.9144) | 90º | (10.5, 1.5, 5) | (11, 2, 5) |
+| (5, -2) | (1.524, -0.6096) | 90º | (10.5, 2.5, 5) | (11, 3, 5) |
+| (5,  3) | (1.524, 0.9144) | 180º | (10.5, 7.5, 10) | (11, 8, 10) |
+| (0,  3) | (0, 0.9144) | 270º | (5.5, 7.5, 15) | (6, 8, 15) |
+| (0,  0) | (0, 0) | anything | (5.5, 4.5, --) | (6, 5, --) |
 
 # Acknowledgments

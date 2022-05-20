@@ -30,14 +30,14 @@ Now that we've successfully completed Labs 1-12, we are finally at the point whe
 
 Below is a simple overview of how the robot is going to hit the waypoints:
 
-1. The robot has a target state it wants to achieve.
+1. The robot has a goal state it wants to achieve (it starts off with the first waypoint).
 2. It performs localization to find out its current belief state.
-3. Depending on its current belief state, it will execute some actions in order to try to get to the target state. This repeats until the robot reaches the target state (or somewhere near there). The action will be determined by the 
-4. Once it reaches the target state, the next waypoint becomes the robot's new target state.
+3. The input control is computed and it executes the first angle rotation, the distance translation, then the second angle rotation to theoretically achieve the goal state.
+4. It localizes again. If it achieved its goal state (or within 0.25m of it), the next waypoint becomes the robot's new target state. If not, the robot will continue to try to reach the current goal state before updating it to the next waypoint.
 
 ## Target States
 
-Since the waypoints are only the physical coordinates of the robot, I wanted to find the actual state that it would be in. Since the state also includes the angle of the robot, I set the target angle to be the one that faces the next waypoint.
+Since the waypoints given to us were in feet, we wanted to convert this to meters since this is the units that the belief is in (and since we rely heavily on the belief, we standardize it to this). We also want to know the angle, and this angle is the angle where the robot faces its next waypoint.
 
 | Waypoint (ft) | Waypoint (m) | Angle (º) | 
 | -------- | ----- | ------- |
@@ -50,6 +50,40 @@ Since the waypoints are only the physical coordinates of the robot, I wanted to 
 | (5,  3) | (1.524, 0.9144) | 180º | 
 | (0,  3) | (0, 0.9144) | 270º |
 | (0,  0) | (0, 0) | anything |
+
+## Python and Arduino
+
+There were several things that we needed to split up on the Python and Arduino side of things. We needed to do the update step and calculations in Python, and most of the other things in Arduino. Below is a diagram of how tasks were split up:
+
+<p align="left"><img src="../../images/lab13/python-arduino.png" height="350" width="350"></p>
+
+Now that we knew how to split up the tasks between the Python and Arduino side, we could go on to actually implementing each one.
+
+# Python
+
+As illustrated above, the python script is in charge of finding the belief and calculating the control input. The setup is as per usual in the previous labs, including the Localization and Mapper classes (thanks Vivek!) that help with getting the belief and other things like normalizing angles. We have the ```wp``` variable, which holds an array of all the waypoints and their angle. The ```perform_observation_loop``` function in the ```RealRobot``` class is called by the ```loc.get_observation_data()``` function call and uses the array of sensor values received from the robot and formats it as needed to get the belief, which is computed in the ```loc.update_step()```.
+
+After connecting to bluetooth and instantiating all our classes, we need to initialize uniform belief to get an initial belief. Now we can finally start the robot. When we begin, we only want to get the belief and calculate the control inputs when we receive something from the robot. The rest of the code is pretty self-explanatory from the comments.
+
+<script src="https://gist.github.com/anyafp/ad23929533057b4bbd6508a977804eb1.js"></script>
+
+Since we have an if statement that determines if we have reached the end waypoint depending on the belief, if we do not accurately control the robot and drift to a point near the last waypoint, the robot will think that it had reached the last point and will end the program as seen below.
+
+<p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/FGpnVrgFYt4"></iframe></p>
+<p></p>
+
+# Arduino
+
+# Runs
+
+## Take 1
+
+<p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/BjcBeooy7qM"></iframe></p>
+<p></p>
+
+## Take 2
+
+## Reverse
 
 # Acknowledgments
 

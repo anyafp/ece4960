@@ -67,12 +67,15 @@ After connecting to bluetooth and instantiating all our classes, we need to init
 
 <script src="https://gist.github.com/anyafp/ad23929533057b4bbd6508a977804eb1.js"></script>
 
-Since we have an if statement that determines if we have reached the end waypoint depending on the belief, if we do not accurately control the robot and drift to a point near the last waypoint, the robot will think that it had reached the last point and will end the program as seen below.
-
-<p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/FGpnVrgFYt4"></iframe></p>
-<p></p>
+Since we have an if statement that determines if we have reached the end waypoint depending on the belief, if we do not accurately control the robot and drift to a point near the last waypoint, the robot will think that it had reached the last point and will end the program.
 
 # Arduino
+
+As mentioned above, the Arduino side took care of the localization spin, gathering and sending the sensor data. After waiting for control inputs from the Python side, it will execute those inputs and repeat the process. This was done in a big while loop instead of a for loop because we don't know how many tries it will take the robot to get through the 9 waypoints since it corrects itself if it misses a waypoint.
+
+We reused most of the code from our previous labs, but the biggest drawback of working individually up to this point and deciding to work together only on the last lab was that it was a big pain to combine our code together. There were some parts where my code performed better (e.g. the spin for localization) and some other parts where another group member's code worked better (e.g. Ben's sending of data using bluetooth) and merging them was painfull because we had to make sure that the UUIDs matched, the pins for the motors and sensors matched, and other small things that turned out to be difficult to debug.
+
+But once we had that settled, we could begin implementing the code. 
 
 # Runs
 
@@ -83,6 +86,9 @@ Since we have an if statement that determines if we have reached the end waypoin
 
 ## Take 2
 
+<p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/n2AMH12JBAw"></iframe></p>
+<p></p>
+
 ## Reverse
 
 # Acknowledgments
@@ -91,3 +97,7 @@ I worked on this lab with [Ben](https://bwagner2-git.github.io/){:target="_blank
 
 <p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/aiY8pAgs5rU"></iframe></p>
 <p></p>
+
+Thank you to the groups that were there on Thursday night for making the lab super fun and being supportive of everyone's robot! It was nice to hear everyone cheering on other groups' robots. And for Krithik, Apu and Aarya's group for picking up dinner for us.
+
+Another big thank you to the course staff for being so supportive throughout the semester!

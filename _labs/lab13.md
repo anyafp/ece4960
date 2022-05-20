@@ -81,14 +81,14 @@ But once we had that settled, we could begin implementing the code.
 
 ## Take 1
 
-<p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/BjcBeooy7qM"></iframe></p>
+<p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/uieqZwjLLs8"></iframe></p>
 <p></p>
 
 ## Take 2
 
 <p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/n2AMH12JBAw"></iframe></p>
 <p></p>
-
+https://youtu.be/n2AMH12JBAw
 ## Reverse
 
 # Acknowledgments

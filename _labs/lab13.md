@@ -39,16 +39,21 @@ Below is a simple overview of how the robot is going to hit the waypoints:
 
 Since the waypoints are only the physical coordinates of the robot, I wanted to find the actual state that it would be in. Since the state also includes the angle of the robot, I set the target angle to be the one that faces the next waypoint.
 
-| Waypoint (ft) | Waypoint (m) | Angle (º) | Actual State | Rounded State |
-| -------- | ----- | ------- | -------- | -------- |
-| (-4, -3) | (-1.2192, -0.9144) | 45º | (1.5, 1.5, 2.5) | (2, 2, 3) |
-| (-2, -1) | (-0.6096, -0.3048) |  0º | (3.5, 3.5, 0) | (4, 4, 0) |
-| (1, -1) | (0.3048, -0.3048) | 300º | (4.5, 3.5, 16.667) | (5, 4, 17) |
-| (2, -3) | (0.3048, -0.9144) | 0º | (4.5, 1.5, 0) | (5, 2, 0) |
-| (5, -3) | (1.524, -0.9144) | 90º | (10.5, 1.5, 5) | (11, 2, 5) |
-| (5, -2) | (1.524, -0.6096) | 90º | (10.5, 2.5, 5) | (11, 3, 5) |
-| (5,  3) | (1.524, 0.9144) | 180º | (10.5, 7.5, 10) | (11, 8, 10) |
-| (0,  3) | (0, 0.9144) | 270º | (5.5, 7.5, 15) | (6, 8, 15) |
-| (0,  0) | (0, 0) | anything | (5.5, 4.5, --) | (6, 5, --) |
+| Waypoint (ft) | Waypoint (m) | Angle (º) | 
+| -------- | ----- | ------- |
+| (-4, -3) | (-1.2192, -0.9144) | 45º | 
+| (-2, -1) | (-0.6096, -0.3048) |  0º | 
+| (1, -1) | (0.3048, -0.3048) | 300º |
+| (2, -3) | (0.3048, -0.9144) | 0º | 
+| (5, -3) | (1.524, -0.9144) | 90º | 
+| (5, -2) | (1.524, -0.6096) | 90º | 
+| (5,  3) | (1.524, 0.9144) | 180º | 
+| (0,  3) | (0, 0.9144) | 270º |
+| (0,  0) | (0, 0) | anything |
 
 # Acknowledgments
+
+I worked on this lab with [Ben](https://bwagner2-git.github.io/){:target="_blank"} and [Chidera](https://pages.github.coecis.cornell.edu/ccw94/Fast-Robots/index.html){:target="_blank"}. Because we were able to use what we had done in the previous labs and put it all together to finish Lab 13, we were able to complete it in 11 hours straight in one day from 2pm - 1am. Big thank you to Kirstin and the TAs for letting us stay for so long and for Jade for doing his RF project till that late.
+
+<p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/aiY8pAgs5rU"></iframe></p>
+<p></p>

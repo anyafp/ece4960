@@ -67,7 +67,7 @@ After connecting to bluetooth and instantiating all our classes, we need to init
 
 <script src="https://gist.github.com/anyafp/ad23929533057b4bbd6508a977804eb1.js"></script>
 
-Since we have an if statement that determines if we have reached the end waypoint depending on the belief, if we do not accurately control the robot and drift to a point near the last waypoint, the robot will think that it had reached the last point and will end the program.
+Since we have an if statement that determines if we have reached the end waypoint depending on the belief, if we do not accurately control the robot and drift to a point near the last waypoint, the robot will think that it had reached the last point and will end the program. We set a buffer distance of 0.25m because anything smaller than that would have made the robot do many tries before being satisfied with the position, and anything greater would get the robot confused between waypoints (especially (1, -1) and (0,  0)).
 
 # Arduino
 
@@ -75,21 +75,38 @@ As mentioned above, the Arduino side took care of the localization spin, gatheri
 
 We reused most of the code from our previous labs, but the biggest drawback of working individually up to this point and deciding to work together only on the last lab was that it was a big pain to combine our code together. There were some parts where my code performed better (e.g. the spin for localization) and some other parts where another group member's code worked better (e.g. Ben's sending of data using bluetooth) and merging them was painfull because we had to make sure that the UUIDs matched, the pins for the motors and sensors matched, and other small things that turned out to be difficult to debug. But once we had that settled, we could begin implementing the code. 
 
+// 
+// Motor brake
+
 # Runs
 
+Since it's kind of difficult to see what the robot is doing at certain points in time, I labelled the action that (I believe) the robot is executing. The reason it might be confusing is because we have 3 rotating actions in a row (rotation 2, localization, rotation 1) which can be confusing but I tried my best to differentiate them by observing the way they turn (since the rotation and localization use different codes to spin), and the fact that there is a short pause after localization when the robot is waiting for the control inputs from the computer. Another way to distinguish it is by observing the theoretical angle the robot should be facing at what point in time, and the fact that localization is always 360º.
+
+It was difficult to determine and annotate which goal the robot had at every point in time, but the commentary kind of tells you where we thought the robot was trying to go at certain points in time.
+
 ## Take 1
+
+Unfortunately, the video didn't capture the start where the robot went from the first waypoint to the second waypoint. It's pretty clear that as the run continues, the wheels get weaker and weaker which is unfortunate but there was not much we could do about it. At the end, we did not expect the robot to think it was done because it was more than 0.25m away from the end point (0,0). This might be because the belief was nearer to (0,0) than it actually was and the program stopped there.
+
+One thing we had considered was that a lot of the error came from the rotation and our weak wheels (which was a tradeoff because we wanted slow rotations for localization but the other rotations were not as clean). When we were doing the rotations (rotation 1 and rotation 2), the robot would only rotate in one direction. So the Python script could tell the robot to rotate 350º around to get to where it should be. This would cause a lot of error from the drift because we acknowledge that our wheels are not perfect. To combat this, we tried making the robot turn in the other direction if the rotation were more than 180º, but the runs before this change was better. We concluded that this might be because we had already been playing around with the ratio of the strengths of each wheel, and had to put in more time to play around with the other rotation direction so we decided to stick with having the robot only rotate in one direction.
 
 <p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/uieqZwjLLs8"></iframe></p>
 <p></p>
 
 ## Take 2
 
-In this run, the spin for the localization did not seem to go very well as only one wheel would spin while the other didn't move (even though this was the same code that wsa very reliable in Lab 9 and Lab 12). We were pretty lucky that the belief we got was still somewhat accurate. Just like the first run, the wheels got weaker and weaker as we progressed through the map.
+In this run, the spin for the localization did not seem to go very well as only one wheel would spin while the other didn't move (even though this was the same code that wsa very reliable in Lab 9 and Lab 12). This was odd because it worked better in the first run. We attributed it to the fact that we took so many runs and there was bound to be error somewhere and also that the wheels might have started to jam unpredictably. We were still pretty lucky that the belief we got was somewhat accurate. Just like the first run, the wheels got weaker and weaker as we progressed through the map so the robot performed relatively better in the first half of the map.
+
+As you can see, halfway through the video, the robot got stuck against the wall and needed a nudge to be able to turn again. Although it faced this challenge and needed external forces to fix this one caveat, it was able to correct the error when it was put off track due to the nature of the algorithm we used.
 
 <p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/n2AMH12JBAw"></iframe></p>
 <p></p>
 
 ## Reverse
+
+We decided to do a run where the order of the waypoints were reversed. The point of this was to show that the algorithm we used was independent of the order of the waypoints fed in and the robot would be able to navigate through the map itself given the waypoints. However, we had only reversed the order of the waypoints by applying ```wp.reverse()```. In addition to this, we would also need to change the angle at each coordinate waypoint fed because I had calculated the angles based on the next waypoint that the robot needed to go to. Although this would not greately affect the correctness of the robot as it would correct itself when doing localization, this would slow down the robot since it has to turn a lot and in turn might increase the potential error since a lot of our inconsistencies came from the rotations and drifting.
+
+The robot was doing pretty well during the first half of the run, but when it came to the second last point in the reversed list of waypoints, it kept overshooting and trying to correct itself but it was taking way too long and kept running into the wall so we decided to end it there.
 
 <p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/2VqoVV9AWJY"></iframe></p>
 <p></p>

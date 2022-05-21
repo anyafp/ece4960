@@ -43,7 +43,7 @@ __Python Packages__
 
 We installed __ArduinoBLE__ from the library manager in the Arduino IDE and loaded the ble_arduino.ino example sketch into the Artemis board. The Artemis board printed it's MAC address as shown below.
 
-<p align="left"><img src="../../images/lab2/mac-add.png" height="600" width="600"></p>
+<p align="left"><img src="../../images/lab2/mac-add.png" height="700" width="700"></p>
 
 # Code Overview
 
@@ -54,7 +54,7 @@ The `demo.ipynb` notebook is a demo file that helps us set up the bluetooth conn
 <script src="https://gist.github.com/anyafp/ba2e30e060d7ff1b6c2c3657dba16224.js"></script>
 
 
-<p align="left"><img src="../../images/lab2/two-ints.png" height="600" width="600"></p>
+<p align="left"><img src="../../images/lab2/two-ints.png" height="700" width="700"></p>
 
 # Lab Tasks
 
@@ -76,4 +76,4 @@ The first step was to create the global variable that is to be updated. This was
 
 <script src="https://gist.github.com/anyafp/461692d263f434177b5cdbf4b2100b2c.js"></script>
 
-<p align="left"><img src="../../images/lab2/arduino-lab-task.png" height="2000" width="2000"></p>
+<p align="left"><img src="../../images/lab2/arduino-lab-task.png" height="700" width="700"></p>

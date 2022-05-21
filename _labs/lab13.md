@@ -24,7 +24,7 @@ Now that we've successfully completed Labs 1-12, we are finally at the point whe
 8. (0, 3)
 9. (0, 0) [end]
 
-<p align="left"><img src="../../images/lab13/path.png" height="400" width="400"></p>
+<p align="left"><img src="../../images/lab13/map-waypoints.png" height="700" width="700"></p>
 
 # Implementation Details
 
@@ -55,7 +55,7 @@ Since the waypoints given to us were in feet, we wanted to convert this to meter
 
 There were several things that we needed to split up on the Python and Arduino side of things. We needed to do the update step and calculations in Python, and most of the other things in Arduino. Below is a diagram of how tasks were split up:
 
-<p align="left"><img src="../../images/lab13/python-arduino.png" height="350" width="350"></p>
+<p align="middle"><img src="../../images/lab13/python-arduino.png" height="400" width="400"></p>
 
 Now that we knew how to split up the tasks between the Python and Arduino side, we could go on to actually implementing each one.
 
@@ -75,9 +75,16 @@ As mentioned above, the Arduino side took care of the localization spin, gatheri
 
 We reused most of the code from our previous labs, but the biggest drawback of working individually up to this point and deciding to work together only on the last lab was that it was a big pain to combine our code together. There were some parts where my code performed better (e.g. the spin for localization) and some other parts where another group member's code worked better (e.g. Ben's sending of data using bluetooth) and merging them was painfull because we had to make sure that the UUIDs matched, the pins for the motors and sensors matched, IMU orientation difference was accounted for, and other small things that turned out to be difficult to debug. But once we had that settled, we could begin implementing the code. 
 
-// States
-// Motor brake
-// Waiting for input
+We took an incremental approach and focused on getting the robot to drive straight using PID with the gyroscope data. This was so that we could reduce the error that would accumulate if the robot does not drive straight as the control input would expect.
+
+<script src="https://gist.github.com/anyafp/f0a4ac2dc6eebb6538510259f1f159f3.js"></script>
+
+Next, we wanted to ensure that the robot could do the main three tasks that it needed to do: localize, turn, drive straight, turn. We tested these functions in isolations as shown below.
+
+<p align="left"><iframe width="720" height="408" src="https://youtube.com/embed/u-iYJSsC8IM"></iframe></p>
+<p></p>
+
+Although I would have wanted to implement the entire system using states and if statements to make it clear that the code was non-blocking, Ben had his own way of writing up the Arduino side of the code which I didn't agree with, but worked so I can't complain. You can find the code [here](https://bwagner2-git.github.io/lab13){:target="_blank"} at the end of his webpage for Lab 13.
 
 # Runs
 

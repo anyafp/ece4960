@@ -83,4 +83,4 @@ The not so good beliefs, on the other hand, had symmetrical (near) surroundings.
 
 # Acknowledgments
 
-Big thanks (as always) to the course staff for explaining how Lab 12 works, Vivek for giving us the model code for the Bayes filter, and Kirsten for explaining the symmetrical mapping reasoning for why some of my beliefs were not so good.
+Big thanks (as always) to the course staff for explaining how Lab 12 works, Vivek for giving us the model code for the Bayes filter, and Kirstin for explaining the symmetrical mapping reasoning for why some of my beliefs were not so good.

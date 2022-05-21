@@ -73,10 +73,11 @@ Since we have an if statement that determines if we have reached the end waypoin
 
 As mentioned above, the Arduino side took care of the localization spin, gathering and sending the sensor data. After waiting for control inputs from the Python side, it will execute those inputs and repeat the process. This was done in a big while loop instead of a for loop because we don't know how many tries it will take the robot to get through the 9 waypoints since it corrects itself if it misses a waypoint.
 
-We reused most of the code from our previous labs, but the biggest drawback of working individually up to this point and deciding to work together only on the last lab was that it was a big pain to combine our code together. There were some parts where my code performed better (e.g. the spin for localization) and some other parts where another group member's code worked better (e.g. Ben's sending of data using bluetooth) and merging them was painfull because we had to make sure that the UUIDs matched, the pins for the motors and sensors matched, and other small things that turned out to be difficult to debug. But once we had that settled, we could begin implementing the code. 
+We reused most of the code from our previous labs, but the biggest drawback of working individually up to this point and deciding to work together only on the last lab was that it was a big pain to combine our code together. There were some parts where my code performed better (e.g. the spin for localization) and some other parts where another group member's code worked better (e.g. Ben's sending of data using bluetooth) and merging them was painfull because we had to make sure that the UUIDs matched, the pins for the motors and sensors matched, IMU orientation difference was accounted for, and other small things that turned out to be difficult to debug. But once we had that settled, we could begin implementing the code. 
 
-// 
+// States
 // Motor brake
+// Waiting for input
 
 # Runs
 
